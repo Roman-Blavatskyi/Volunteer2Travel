@@ -1,11 +1,14 @@
 package com.softserve.firstdemo.Entity;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Location {
     private int id;
     private String country;
     private String city;
+
+    private List<Project> projects;
 
     public Location() {
     }

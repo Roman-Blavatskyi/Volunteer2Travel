@@ -10,21 +10,24 @@ public class Project {
     private String description;
     private LocalDate startDate;
     private int duration;
+    private Prerequisite prerequisite;
+    private Location location;
 
-    private List<Location> locations;
-    private List<Prerequisite> prerequisites;
     private List<User> users;
 
     public Project() {
     }
 
     public Project(int id, String name, String description,
-                   LocalDate startDate, int duration) {
+                   LocalDate startDate, int duration,
+                   Prerequisite prerequisite, Location location) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.duration = duration;
+        this.prerequisite = prerequisite;
+        this.location = location;
     }
 
     public int getId() {
@@ -67,20 +70,28 @@ public class Project {
         this.duration = duration;
     }
 
-    public List<Prerequisite> getPrerequisites() {
-        return prerequisites;
+    public Prerequisite getPrerequisite() {
+        return prerequisite;
     }
 
-    public void setPrerequisites(List<Prerequisite> prerequisites) {
-        this.prerequisites = prerequisites;
+    public void setPrerequisite(Prerequisite prerequisite) {
+        this.prerequisite = prerequisite;
     }
 
-    public List<Location> getLocations() {
-        return locations;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLocations(List<Location> locations) {
-        this.locations = locations;
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     @Override
@@ -93,13 +104,13 @@ public class Project {
                 name.equals(project.name) &&
                 description.equals(project.description) &&
                 startDate.equals(project.startDate) &&
-                prerequisites.equals(project.prerequisites);
+                prerequisite.equals(project.prerequisite) &&
+                location.equals(project.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, startDate,
-                duration, prerequisites);
+        return Objects.hash(id, name, description, startDate, duration, prerequisite, location);
     }
 
     @Override
@@ -110,7 +121,8 @@ public class Project {
                 ", description='" + description + '\'' +
                 ", startDate=" + startDate +
                 ", duration=" + duration +
-                ", prerequisites=" + prerequisites +
+                ", prerequisite=" + prerequisite +
+                ", location=" + location +
                 '}';
     }
 }

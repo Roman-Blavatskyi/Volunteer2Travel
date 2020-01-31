@@ -10,8 +10,8 @@ public class User {
     private String email;
     private String password;
     private String phone;
+    private Country country;
 
-    private List<Country> countries;
     private List<Project> projects;
 
     public User() {
@@ -75,12 +75,12 @@ public class User {
         this.phone = phone;
     }
 
-    public List<Country> getCountries() {
-        return countries;
+    public Country getCountry() {
+        return country;
     }
 
-    public void setCountries(List<Country> countries) {
-        this.countries = countries;
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public List<Project> getProjects() {
@@ -102,13 +102,12 @@ public class User {
                 email.equals(user.email) &&
                 password.equals(user.password) &&
                 phone.equals(user.phone) &&
-                countries.equals(user.countries);
+                country.equals(user.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, email, password, phone,
-                countries);
+        return Objects.hash(id, name, surname, email, password, phone, country);
     }
 
     @Override
@@ -120,7 +119,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
-                ", countries=" + countries +
+                ", country=" + country +
                 '}';
     }
 }

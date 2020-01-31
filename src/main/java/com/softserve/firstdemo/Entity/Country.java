@@ -1,10 +1,13 @@
 package com.softserve.firstdemo.Entity;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Country {
     private int id;
     private String name;
+
+    private List<User> users;
 
     public Country() {
     }
@@ -28,6 +31,14 @@ public class Country {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     @Override

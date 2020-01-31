@@ -8,6 +8,7 @@ public class Prerequisite {
     private List<Background> backgrounds;
     private List<Langauge> langauges;
     private List<Skill> skills;
+    private List<Project> projects;
 
     public Prerequisite() {
     }
@@ -50,6 +51,14 @@ public class Prerequisite {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 
     @Override
