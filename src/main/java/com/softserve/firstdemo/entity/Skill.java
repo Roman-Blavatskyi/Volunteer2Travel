@@ -1,5 +1,6 @@
 package com.softserve.firstdemo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +8,7 @@ public class Skill {
     private int id;
     private String name;
 
-    private List<Project> projects;
+    private List<Project> projects = new ArrayList<>();
 
     public Skill() {
     }

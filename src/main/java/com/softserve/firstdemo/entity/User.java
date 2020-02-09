@@ -1,5 +1,6 @@
 package com.softserve.firstdemo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ public class User {
     private Country country;
     private String urlImage;
 
-    private List<Project> projects;
+    private List<Project> projects = new ArrayList<>();
 
     public User() {
     }

@@ -1,5 +1,6 @@
 package com.softserve.firstdemo.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -13,10 +14,10 @@ public class Project {
     private String urlImage;
     private Location location;
 
-    private List<User> users;
-    private List<Skill> skills;
-    private List<Background> backgrounds;
-    private List<Language> languages;
+    private List<User> users = new ArrayList<>();
+    private List<Skill> skills = new ArrayList<>();
+    private List<Background> backgrounds = new ArrayList<>();
+    private List<Language> languages = new ArrayList<>();
 
     public Project() {
     }

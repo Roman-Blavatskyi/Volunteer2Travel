@@ -1,5 +1,6 @@
 package com.softserve.firstdemo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +8,7 @@ public class Country {
     private int id;
     private String name;
 
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 
     public Country() {
     }

@@ -8,7 +8,7 @@ public class Language {
     private int id;
     private String name;
 
-    private List<Project> projects;
+    private List<Project> projects = new ArrayList<>();
 
     public Language() {
     }
