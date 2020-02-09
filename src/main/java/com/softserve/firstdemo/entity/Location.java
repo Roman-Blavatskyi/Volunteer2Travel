@@ -1,11 +1,11 @@
-package com.softserve.firstdemo.Entity;
+package com.softserve.firstdemo.entity;
 
 import java.util.List;
 import java.util.Objects;
 
 public class Location {
     private int id;
-    private String country;
+    private Country country;
     private String city;
 
     private List<Project> projects;
@@ -13,7 +13,7 @@ public class Location {
     public Location() {
     }
 
-    public Location(int id, String country, String city) {
+    public Location(int id, Country country, String city) {
         this.id = id;
         this.country = country;
         this.city = city;
@@ -27,11 +27,11 @@ public class Location {
         this.id = id;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCountryName() {
+        return country.getName();
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 
@@ -43,14 +43,22 @@ public class Location {
         this.city = city;
     }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Location location = (Location) o;
         return id == location.id &&
-                country.equals(location.country) &&
-                city.equals(location.city);
+                Objects.equals(country, location.country) &&
+                Objects.equals(city, location.city);
     }
 
     @Override
@@ -62,7 +70,7 @@ public class Location {
     public String toString() {
         return "Location{" +
                 "id=" + id +
-                ", country='" + country + '\'' +
+                ", country=" + country +
                 ", city='" + city + '\'' +
                 '}';
     }

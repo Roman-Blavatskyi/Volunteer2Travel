@@ -1,10 +1,13 @@
-package com.softserve.firstdemo.Entity;
+package com.softserve.firstdemo.entity;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Skill {
     private int id;
     private String name;
+
+    private List<Project> projects;
 
     public Skill() {
     }
@@ -28,6 +31,14 @@ public class Skill {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 
     @Override

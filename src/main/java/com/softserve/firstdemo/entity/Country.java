@@ -1,4 +1,4 @@
-package com.softserve.firstdemo.Entity;
+package com.softserve.firstdemo.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +47,7 @@ public class Country {
         if (o == null || getClass() != o.getClass()) return false;
         Country country = (Country) o;
         return id == country.id &&
-                name.equals(country.name);
+                Objects.equals(name, country.name);
     }
 
     @Override

@@ -1,6 +1,6 @@
-package com.softserve.firstdemo.Entity;
+package com.softserve.firstdemo.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,25 +8,28 @@ public class Project {
     private int id;
     private String name;
     private String description;
-    private LocalDate startDate;
+    private Date startDate;
     private int duration;
-    private Prerequisite prerequisite;
+    private String urlImage;
     private Location location;
 
     private List<User> users;
+    private List<Skill> skills;
+    private List<Background> backgrounds;
+    private List<Language> languages;
 
     public Project() {
     }
 
     public Project(int id, String name, String description,
-                   LocalDate startDate, int duration,
-                   Prerequisite prerequisite, Location location) {
+                   Date startDate, int duration, String urlImage,
+                   Location location) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.duration = duration;
-        this.prerequisite = prerequisite;
+        this.urlImage = urlImage;
         this.location = location;
     }
 
@@ -54,11 +57,11 @@ public class Project {
         this.description = description;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
@@ -70,20 +73,20 @@ public class Project {
         this.duration = duration;
     }
 
-    public Prerequisite getPrerequisite() {
-        return prerequisite;
-    }
-
-    public void setPrerequisite(Prerequisite prerequisite) {
-        this.prerequisite = prerequisite;
-    }
-
     public Location getLocation() {
         return location;
     }
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 
     public List<User> getUsers() {
@@ -94,6 +97,30 @@ public class Project {
         this.users = users;
     }
 
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
+
+    public List<Background> getBackgrounds() {
+        return backgrounds;
+    }
+
+    public void setBackgrounds(List<Background> backgrounds) {
+        this.backgrounds = backgrounds;
+    }
+
+    public List<Language> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(List<Language> languages) {
+        this.languages = languages;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,16 +128,16 @@ public class Project {
         Project project = (Project) o;
         return id == project.id &&
                 duration == project.duration &&
-                name.equals(project.name) &&
-                description.equals(project.description) &&
-                startDate.equals(project.startDate) &&
-                prerequisite.equals(project.prerequisite) &&
-                location.equals(project.location);
+                Objects.equals(name, project.name) &&
+                Objects.equals(description, project.description) &&
+                Objects.equals(startDate, project.startDate) &&
+                Objects.equals(urlImage, project.urlImage) &&
+                Objects.equals(location, project.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, startDate, duration, prerequisite, location);
+        return Objects.hash(id, name, description, startDate, duration, urlImage, location);
     }
 
     @Override
@@ -121,7 +148,7 @@ public class Project {
                 ", description='" + description + '\'' +
                 ", startDate=" + startDate +
                 ", duration=" + duration +
-                ", prerequisite=" + prerequisite +
+                ", urlImage='" + urlImage + '\'' +
                 ", location=" + location +
                 '}';
     }

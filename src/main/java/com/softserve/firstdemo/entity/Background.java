@@ -1,15 +1,18 @@
-package com.softserve.firstdemo.Entity;
+package com.softserve.firstdemo.entity;
 
+import java.util.List;
 import java.util.Objects;
 
-public class Langauge {
+public class Background {
     private int id;
     private String name;
 
-    public Langauge() {
+    private List<Project> projects;
+
+    public Background() {
     }
 
-    public Langauge(int id, String name) {
+    public Background(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -30,13 +33,21 @@ public class Langauge {
         this.name = name;
     }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Langauge langauge = (Langauge) o;
-        return id == langauge.id &&
-                name.equals(langauge.name);
+        Background that = (Background) o;
+        return id == that.id &&
+                Objects.equals(name, that.name);
     }
 
     @Override
@@ -46,7 +57,7 @@ public class Langauge {
 
     @Override
     public String toString() {
-        return "Langauge{" +
+        return "Background{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

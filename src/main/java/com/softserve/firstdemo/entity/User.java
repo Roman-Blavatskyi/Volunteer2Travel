@@ -1,4 +1,4 @@
-package com.softserve.firstdemo.Entity;
+package com.softserve.firstdemo.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -11,6 +11,7 @@ public class User {
     private String password;
     private String phone;
     private Country country;
+    private String urlImage;
 
     private List<Project> projects;
 
@@ -18,13 +19,16 @@ public class User {
     }
 
     public User(int id, String name, String surname, String email,
-                String password, String phone) {
+                String password, String phone, Country country,
+                String urlImage) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
         this.phone = phone;
+        this.country = country;
+        this.urlImage = urlImage;
     }
 
     public int getId() {
@@ -91,6 +95,14 @@ public class User {
         this.projects = projects;
     }
 
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,12 +114,13 @@ public class User {
                 email.equals(user.email) &&
                 password.equals(user.password) &&
                 phone.equals(user.phone) &&
-                country.equals(user.country);
+                country.equals(user.country) &&
+                Objects.equals(urlImage, user.urlImage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, email, password, phone, country);
+        return Objects.hash(id, name, surname, email, password, phone, country, urlImage);
     }
 
     @Override
@@ -120,6 +133,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", country=" + country +
+                ", urlImage='" + urlImage + '\'' +
                 '}';
     }
 }

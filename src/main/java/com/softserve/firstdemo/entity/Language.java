@@ -1,15 +1,19 @@
-package com.softserve.firstdemo.Entity;
+package com.softserve.firstdemo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Background {
+public class Language {
     private int id;
     private String name;
 
-    public Background() {
+    private List<Project> projects;
+
+    public Language() {
     }
 
-    public Background(int id, String name) {
+    public Language(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -30,13 +34,21 @@ public class Background {
         this.name = name;
     }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Background that = (Background) o;
-        return id == that.id &&
-                name.equals(that.name);
+        Language language = (Language) o;
+        return id == language.id &&
+                Objects.equals(name, language.name);
     }
 
     @Override
@@ -46,7 +58,7 @@ public class Background {
 
     @Override
     public String toString() {
-        return "Background{" +
+        return "Language{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
