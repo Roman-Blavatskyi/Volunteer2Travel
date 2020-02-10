@@ -20,12 +20,21 @@ public class Location {
         this.city = city;
     }
 
+    public Location(Country country, String city) {
+        this.country = country;
+        this.city = city;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Country getCountry() {
+        return country;
     }
 
     public String getCountryName() {

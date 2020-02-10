@@ -18,6 +18,10 @@ public class Skill {
         this.name = name;
     }
 
+    public Skill(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

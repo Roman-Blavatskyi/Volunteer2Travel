@@ -34,6 +34,15 @@ public class Project {
         this.location = location;
     }
 
+    public Project(String name, String description, Date startDate, int duration, String urlImage, Location location) {
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.duration = duration;
+        this.urlImage = urlImage;
+        this.location = location;
+    }
+
     public int getId() {
         return id;
     }

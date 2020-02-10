@@ -18,6 +18,10 @@ public class Background {
         this.name = name;
     }
 
+    public Background(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

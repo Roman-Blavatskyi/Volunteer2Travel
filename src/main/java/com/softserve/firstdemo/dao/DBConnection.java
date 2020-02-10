@@ -21,7 +21,7 @@ public class DBConnection {
             connection = DriverManager.getConnection(URL, NAME, PASSWORD);
             logger.info("Connection to Database was successful.");
         } catch (ClassNotFoundException | SQLException e) {
-            logger.error("There are problems with Database connection");
+            logger.error("There are problems with Database connection.");
             logger.error(e);
         }
 
