@@ -120,6 +120,9 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
+
+
+
         } catch (SQLException e) {
             logger.error("There are problems with deleting from `Projects` table | ProjectDAO Exception.");
             e.printStackTrace();
