@@ -1,11 +1,12 @@
 package com.softserve.firstdemo.dao;
 
 import com.softserve.firstdemo.entity.User;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class UserDao implements IGeneralDao<User, Integer> {
     private static final String CREATE_USER =
@@ -15,12 +16,12 @@ public class UserDao implements IGeneralDao<User, Integer> {
     private static final String UPDATE_USER =
             "UPDATE USERS SET NAME=?, SURNAME=?, EMAIL=?, PASSWORD=?, PHONE=?, URLIMAGE=?, COUNTRYID=? WHERE ID = ?";
     private static final String DELETE_USER = "DELETE FROM USERS WHERE ID = ?";
-    private static Logger logger = Logger.getLogger(UserDao.class.getName());
+//    private static Logger logger = Logger.getLogger(UserDao.class.getName());
     private static CountryDao countryDao;
 
     @Override
     public void create(User user) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(CREATE_USER)) {
 
             preparedStatement.setString(1, user.getName());
@@ -34,15 +35,16 @@ public class UserDao implements IGeneralDao<User, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with inserting into `Users` table | UserDAO Exception.");
-            e.printStackTrace();
+           /* logger.info("There are problems with inserting into `Users` table | UserDAO Exception.");
+            logger.info(e);*/
+           e.printStackTrace();
         }
     }
 
     @Override
     public List<User> readAll() {
         List<User> users = new ArrayList<>();
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              Statement statement = connection.createStatement()) {
 
             ResultSet resultSet = statement.executeQuery(READ_ALL_USERS);
@@ -61,7 +63,8 @@ public class UserDao implements IGeneralDao<User, Integer> {
                 users.add(user);
             }
         } catch (SQLException e) {
-            logger.error("There are problems with reading all users from `Users` table | UserDAO Exception.");
+        /*    logger.info("There are problems with reading all users from `Users` table | UserDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
         return users;
@@ -70,7 +73,7 @@ public class UserDao implements IGeneralDao<User, Integer> {
     @Override
     public User readById(Integer id) {
         User user = new User();
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_USER_BY_ID)) {
 
             preparedStatement.setInt(1, id);
@@ -88,7 +91,8 @@ public class UserDao implements IGeneralDao<User, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with reading users by id from `Users` table | UserDAO Exception.");
+         /*   logger.info("There are problems with reading users by id from `Users` table | UserDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
         return user;
@@ -96,7 +100,7 @@ public class UserDao implements IGeneralDao<User, Integer> {
 
     @Override
     public void update(User user, Integer id) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)) {
 
             preparedStatement.setString(1, user.getName());
@@ -111,21 +115,23 @@ public class UserDao implements IGeneralDao<User, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with updating `Users` table | UserDAO Exception.");
+       /*     logger.info("There are problems with updating `Users` table | UserDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }
 
     @Override
     public void delete(Integer id) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER)) {
 
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with deleting from `Users` table | UserDAO Exception.");
+         /*   logger.info("There are problems with deleting from `Users` table | UserDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }

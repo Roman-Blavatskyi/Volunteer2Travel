@@ -1,7 +1,7 @@
 package com.softserve.firstdemo.dao;
 
 import com.softserve.firstdemo.entity.Language;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,18 +13,19 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
     private static final String READ_LANGUAGE_BY_ID = "SELECT * FROM LANGUAGES WHERE ID = ?";
     private static final String UPDATE_LANGUAGE = "UPDATE LANGUAGES SET NAME=? WHERE ID = ?";
     private static final String DELETE_LANGUAGE = "DELETE FROM LANGUAGES WHERE ID = ?";
-    private static Logger logger = Logger.getLogger(LanguageDao.class.getName());
+//    private static Logger logger = Logger.getLogger(LanguageDao.class.getName());
 
     @Override
     public void create(Language language) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(CREATE_LANGUAGE)) {
 
             preparedStatement.setString(1, language.getName());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with inserting into `Languages` table | LanguageDAO Exception.");
+   /*         logger.info("There are problems with inserting into `Languages` table | LanguageDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -32,7 +33,7 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
     @Override
     public List<Language> readAll() {
         List<Language> languages = new ArrayList<>();
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              Statement statement = connection.createStatement()) {
 
             ResultSet resultSet = statement.executeQuery(READ_ALL_LANGUAGES);
@@ -45,7 +46,8 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
                 languages.add(language);
             }
         } catch (SQLException e) {
-            logger.error("There are problems with reading all languages from `Languages` table | LanguageDAO Exception.");
+     /*       logger.info("There are problems with reading all languages from `Languages` table | LanguageDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
         return languages;
@@ -54,7 +56,7 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
     @Override
     public Language readById(Integer id) {
         Language language = new Language();
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_LANGUAGE_BY_ID)) {
 
             preparedStatement.setInt(1, id);
@@ -66,7 +68,8 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with reading by id from `Languages` table | LanguageDAO Exception.");
+/*            logger.info("There are problems with reading by id from `Languages` table | LanguageDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
         return language;
@@ -74,7 +77,7 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
 
     @Override
     public void update(Language language, Integer id) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_LANGUAGE)) {
 
             preparedStatement.setString(1, language.getName());
@@ -83,21 +86,23 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with updating `Languages` table | LanguageDAO Exception.");
+ /*           logger.info("There are problems with updating `Languages` table | LanguageDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }
 
     @Override
     public void delete(Integer id) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_LANGUAGE)) {
 
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with deleting from `Languages` table | LanguageDAO Exception.");
+/*            logger.info("There are problems with deleting from `Languages` table | LanguageDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }

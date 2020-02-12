@@ -1,7 +1,7 @@
 package com.softserve.firstdemo.dao;
 
 import com.softserve.firstdemo.entity.Project;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,12 +15,12 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
     private static final String UPDATE_PROJECT =
             "UPDATE SET PROJECTS NAME=?, DESCRIPTION=?, STARTDATE=?, DURATION=?, URLIMAGE=?, LOCATIONID=?  WHERE ID = ?";
     private static final String DELETE_PROJECT = "DELETE FROM PROJECTS WHERE ID = ?";
-    private static Logger logger = Logger.getLogger(ProjectDao.class.getName());
-    private static LocationDao locationDao;
+//    private static Logger logger = Logger.getLogger(ProjectDao.class.getName());
+    private static LocationDao locationDao = new LocationDao();
 
     @Override
     public void create(Project project) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(CREATE_PROJECT)) {
 
             preparedStatement.setString(1, project.getName());
@@ -33,7 +33,8 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with inserting into `Projects` table | ProjectDAO Exception.");
+      /*      logger.info("There are problems with inserting into `Projects` table | ProjectDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -41,10 +42,9 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
     @Override
     public List<Project> readAll() {
         List<Project> projects = new ArrayList<>();
-        try (Connection connection = DBConnection.getInstance().getConnection();
-             Statement statement = connection.createStatement()) {
-
-            ResultSet resultSet = statement.executeQuery(READ_ALL_PROJECTS);
+        try (Connection connection = DBConnection.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(READ_ALL_PROJECTS)) {
 
             while (resultSet.next()) {
                 Project project = new Project();
@@ -59,7 +59,8 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
                 projects.add(project);
             }
         } catch (SQLException e) {
-            logger.error("There are problems with reading all projects from `Projects` table | ProjectDAO Exception.");
+           /* logger.info("There are problems with reading all projects from `Projects` table | ProjectDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
         return projects;
@@ -68,7 +69,7 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
     @Override
     public Project readById(Integer id) {
         Project project = new Project();
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_PROJECT_BY_ID)) {
 
             preparedStatement.setInt(1, id);
@@ -85,7 +86,8 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with reading projects by id from `Projects` table | ProjectDAO Exception.");
+          /*  logger.info("There are problems with reading projects by id from `Projects` table | ProjectDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
         return project;
@@ -93,7 +95,7 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
 
     @Override
     public void update(Project project, Integer id) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PROJECT)) {
 
             preparedStatement.setString(1, project.getName());
@@ -107,24 +109,23 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with updating `Projects` table | ProjectDAO Exception.");
+       /*     logger.info("There are problems with updating `Projects` table | ProjectDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }
 
     @Override
     public void delete(Integer id) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PROJECT)) {
 
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
-
-
-
         } catch (SQLException e) {
-            logger.error("There are problems with deleting from `Projects` table | ProjectDAO Exception.");
+        /*    logger.info("There are problems with deleting from `Projects` table | ProjectDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }

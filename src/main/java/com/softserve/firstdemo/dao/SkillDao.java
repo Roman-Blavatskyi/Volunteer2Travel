@@ -1,11 +1,12 @@
 package com.softserve.firstdemo.dao;
 
 import com.softserve.firstdemo.entity.Skill;
-import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+//import org.apache.log4j.Logger;
 
 public class SkillDao implements IGeneralDao<Skill, Integer> {
     private static final String CREATE_SKILL = "INSERT INTO SKILLS (NAME) VALUES (?)";
@@ -13,11 +14,11 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
     private static final String READ_SKILL_BY_ID = "SELECT * FROM SKILLS WHERE ID = ?";
     private static final String UPDATE_SKILL = "UPDATE SKILLS SET NAME=? WHERE ID = ?";
     private static final String DELETE_SKILL = "DELETE FROM SKILLS WHERE ID = ?";
-    private static Logger logger = Logger.getLogger(SkillDao.class.getName());
+//    private static Logger logger = Logger.getLogger(SkillDao.class.getName());
 
     @Override
     public void create(Skill skill) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(CREATE_SKILL)) {
 
             preparedStatement.setString(1, skill.getName());
@@ -25,7 +26,8 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with inserting into `Skills` table | SkillDAO Exception.");
+  /*          logger.info("There are problems with inserting into `Skills` table | SkillDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -33,7 +35,7 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
     @Override
     public List<Skill> readAll() {
         List<Skill> skills = new ArrayList<>();
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              Statement statement = connection.createStatement()) {
 
             ResultSet resultSet = statement.executeQuery(READ_ALL_SKILLS);
@@ -46,7 +48,8 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
                 skills.add(skill);
             }
         } catch (SQLException e) {
-            logger.error("There are problems with reading all skills from `Skills` table | SkillDAO Exception.");
+           /* logger.info("There are problems with reading all skills from `Skills` table | SkillDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
         return skills;
@@ -55,7 +58,7 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
     @Override
     public Skill readById(Integer id) {
         Skill skill = new Skill();
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_SKILL_BY_ID)) {
             preparedStatement.setInt(1, id);
 
@@ -67,7 +70,8 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with reading by id from `Skills` table | SkillDAO Exception.");
+         /*   logger.info("There are problems with reading by id from `Skills` table | SkillDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
         return skill;
@@ -75,7 +79,7 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
 
     @Override
     public void update(Skill skill, Integer id) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SKILL)) {
 
             preparedStatement.setString(1, skill.getName());
@@ -84,21 +88,23 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with updating `Skills` table | SkillDAO Exception.");
+           /* logger.info("There are problems with updating `Skills` table | SkillDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }
 
     @Override
     public void delete(Integer id) {
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SKILL)) {
 
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            logger.error("There are problems with deleting from `Skills` table | SkillDAO Exception.");
+            /*logger.info("There are problems with deleting from `Skills` table | SkillDAO Exception.");
+            logger.info(e);*/
             e.printStackTrace();
         }
     }

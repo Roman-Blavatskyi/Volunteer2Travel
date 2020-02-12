@@ -3,13 +3,13 @@ package com.softserve.firstdemo.service;
 import com.softserve.firstdemo.dao.ProjectDao;
 import com.softserve.firstdemo.entity.Location;
 import com.softserve.firstdemo.entity.Project;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import java.util.Date;
 import java.util.List;
 
 public class ProjectService {
-    private static Logger logger = Logger.getLogger(ProjectService.class.getName());
+//    private static Logger logger = Logger.getLogger(ProjectService.class);
     private ProjectDao projectDao = new ProjectDao();
 
     public void create(String name, String description, Date startDate, int duration, String urlImage, Location location) {

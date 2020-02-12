@@ -1,0 +1,373 @@
+#rec157400419 .t396__artboard {
+    height: 625px;
+    background-color: #ffffff;
+}
+
+#rec157400419 .t396__filter {
+    height: 625px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6)));
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+#rec157400419 .t396__carrier {
+    height: 625px;
+    background-position: center center;
+    background-attachment: scroll;
+    background-image: url('https://static.tildacdn.com/tild3736-3432-4535-b237-346536636535/-/resize/20x/1_ovqNVA784FgVbUTOyr.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1199px) {
+    #rec157400419 .t396__artboard {
+    }
+
+    #rec157400419 .t396__filter {
+    }
+
+    #rec157400419 .t396__carrier {
+        background-attachment: scroll;
+    }
+}
+
+@media screen and (max-width: 959px) {
+}
+
+@media screen and (max-width: 639px) {
+}
+
+@media screen and (max-width: 479px) {
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] {
+    z-index: 6;
+    top: 329px;
+    left: calc(50% - 600px + -30px);
+    width: 350px;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] .tn-atom {
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+}
+
+@media screen and (max-width: 1199px) {
+}
+
+@media screen and (max-width: 959px) {
+}
+
+@media screen and (max-width: 639px) {
+}
+
+@media screen and (max-width: 479px) {
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579970131102"] {
+    color: #ffffff;
+    z-index: 7;
+    top: 115px;
+    left: calc(50% - 600px + -30px);
+    width: 300px;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579970131102"] .tn-atom {
+    color: #ffffff;
+    font-size: 53px;
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.2;
+    font-weight: 400;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+}
+
+@media screen and (max-width: 1199px) {
+}
+
+@media screen and (max-width: 959px) {
+}
+
+@media screen and (max-width: 639px) {
+}
+
+@media screen and (max-width: 479px) {
+}
+
+#rec157400419 .tn-elem[data-elem-id="1581438316704"] {
+    color: #000;
+    text-align: center;
+    z-index: 10;
+    top: 25px;
+    left: calc(50% - 600px + 1030px);
+    width: 100px;
+    height: 35px;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1581438316704"] .tn-atom {
+    color: #000;
+    font-size: 16px;
+    font-family: 'Arial', Arial, sans-serif;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: #ffe100;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 1199px) {
+}
+
+@media screen and (max-width: 959px) {
+}
+
+@media screen and (max-width: 639px) {
+}
+
+@media screen and (max-width: 479px) {
+}
+
+#rec157400419 .tn-elem[data-elem-id="1581438555834"] {
+    color: #000;
+    text-align: center;
+    z-index: 11;
+    top: 25px;
+    left: calc(50% - 600px + 1150px);
+    width: 100px;
+    height: 35px;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1581438555834"] .tn-atom {
+    color: #000;
+    font-size: 16px;
+    font-family: 'Arial', Arial, sans-serif;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: #ffe100;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 1199px) {
+}
+
+@media screen and (max-width: 959px) {
+}
+
+@media screen and (max-width: 639px) {
+}
+
+@media screen and (max-width: 479px) {
+}
+
+.tn-atom .t-input-error {
+    position: absolute;
+    color: red;
+    background-color: #fff;
+    padding: 8px 10px;
+    border-radius: 2px;
+    z-index: 1;
+    margin-top: 5px;
+    left: 0px;
+    box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.tn-atom .t-input-error:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 6px;
+    top: -12px;
+    left: 15%;
+    border-bottom-color: #fff;
+}
+
+.tn-form__errorbox-close {
+    height: 14px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 14px;
+    cursor: pointer;
+}
+
+.tn-form__errorbox-close-line {
+    background: #fff none repeat scroll 0 0;
+    height: 1px;
+    left: 0;
+    margin-top: -1px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.tn-form__errorbox-close-line-left {
+    transform: rotate(45deg);
+}
+
+.tn-form__errorbox-close-line-right {
+    transform: rotate(-45deg);
+}
+
+.tn-atom .t-form__errorbox-wrapper, .tn-form__errorbox-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 400px;
+    min-width: 260px;
+    width: auto;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    text-align: left;
+    font-family: Arial, sans-serf;
+    background: #F95D51;
+    padding: 10px;
+}
+
+.tn-atom .js-error-control-box .t-radio__wrapper, .tn-atom .js-error-control-box .t-checkbox__control {
+    padding: 3px;
+    margin-top: -3px;
+}
+
+@media screen and (max-width: 480px) {
+    .tn-atom .t-form__errorbox-wrapper, .tn-form__errorbox-popup {
+        max-width: 280px;
+    }
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] input::-webkit-input-placeholder {
+    color: #000;
+    opacity: 0.5;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] input::-moz-placeholder {
+    color: #000;
+    opacity: 0.5;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] input:-moz-placeholder {
+    color: #000;
+    opacity: 0.5;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] input:-ms-input-placeholder {
+    color: #000;
+    opacity: 0.5;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] textarea::-webkit-input-placeholder {
+    color: #000;
+    opacity: 0.5;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] textarea::-moz-placeholder {
+    color: #000;
+    opacity: 0.5;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] textarea:-moz-placeholder {
+    color: #000;
+    opacity: 0.5;
+}
+
+#rec157400419 .tn-elem[data-elem-id="1579969614212"] textarea:-ms-input-placeholder {
+    color: #000;
+    opacity: 0.5;
+}
+
+.tn-atom .t-input-block {
+    position: relative;
+}
+
+.tn-atom .t-input-error {
+    position: absolute;
+    color: red;
+    background-color: #fff;
+    padding: 8px 10px;
+    border-radius: 2px;
+    z-index: 1;
+    margin-top: 5px;
+    left: 0px;
+    box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.tn-atom .t-input-error:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 6px;
+    top: -12px;
+    left: 15%;
+    border-bottom-color: #fff;
+}
+
+.tn-form__errorbox-close {
+    height: 14px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 14px;
+    cursor: pointer;
+}
+
+.tn-form__errorbox-close-line {
+    background: #fff none repeat scroll 0 0;
+    height: 1px;
+    left: 0;
+    margin-top: -1px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.tn-form__errorbox-close-line-left {
+    transform: rotate(45deg);
+}
+
+.tn-form__errorbox-close-line-right {
+    transform: rotate(-45deg);
+}
+
+.tn-atom .t-form__errorbox-wrapper, .tn-form__errorbox-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 400px;
+    min-width: 260px;
+    width: auto;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    text-align: left;
+    font-family: Arial, sans-serf;
+    background: #F95D51;
+    padding: 10px;
+}
+
+.tn-atom .js-error-control-box .t-radio__wrapper, .tn-atom .js-error-control-box .t-checkbox__control {
+    padding: 3px;
+    margin-top: -3px;
+}
+
+@media screen and (max-width: 480px) {
+    .tn-atom .t-form__errorbox-wrapper, .tn-form__errorbox-popup {
+        max-width: 280px;
+    }
+}
