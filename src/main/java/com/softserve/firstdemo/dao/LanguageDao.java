@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LanguageDao implements IGeneralDao<Language, Integer> {
+public class LanguageDao implements IGeneralDao<Language> {
     private static final String CREATE_LANGUAGE = "INSERT INTO LANGUAGES (NAME) VALUES (?)";
     private static final String READ_ALL_LANGUAGES = "SELECT * FROM LANGUAGES";
     private static final String READ_LANGUAGE_BY_ID = "SELECT * FROM LANGUAGES WHERE ID = ?";
@@ -54,7 +54,7 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
     }
 
     @Override
-    public Language readById(Integer id) {
+    public Language readById(int id) {
         Language language = new Language();
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_LANGUAGE_BY_ID)) {
@@ -76,12 +76,12 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
     }
 
     @Override
-    public void update(Language language, Integer id) {
+    public void update(Language language) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_LANGUAGE)) {
 
             preparedStatement.setString(1, language.getName());
-            preparedStatement.setInt(2, id);
+            preparedStatement.setInt(2, language.getId());
 
             preparedStatement.executeUpdate();
 
@@ -93,7 +93,7 @@ public class LanguageDao implements IGeneralDao<Language, Integer> {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(int id) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_LANGUAGE)) {
 

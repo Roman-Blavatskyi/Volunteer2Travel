@@ -67,26 +67,29 @@
                      style="width: 350px; left: -17px; top: 329px;">
                     <div class="tn-atom tn-atom__form">
                         <form id="form157400419" name="form157400419" role="form"
-                              action="https://forms.tildacdn.com/procces/" method="POST" data-formactiontype="2"
+                              action="/login" method="GET" data-formactiontype="2"
                               data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_2  "
                               data-success-callback="" data-success-popup="y" data-error-popup="y">
                             <div class="js-successbox t-form__successbox t-text t-text_sm" style="display:none;"></div>
                             <div class="t-form__inputsbox">
                                 <div class="t-input-group t-input-group_em" data-input-lid="1531306243545"
                                      style="margin-bottom:20px;">
-                                    <div class="t-input-block"><input type="text" name="Email"
-                                                                      class="t-input js-tilda-rule " value=""
-                                                                      placeholder="E-mail" data-tilda-rule="email"
-                                                                      style="color:#000;  background-color:#fff; border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;font-size:16px;font-weight:400;height:40px;">
+                                    <div class="t-input-block">
+
+                                        <input type="text" name="Email"
+                                               class="t-input js-tilda-rule " value=""
+                                               placeholder="E-mail" data-tilda-rule="email"
+                                               style="color:#000;  background-color:#fff; border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;font-size:16px;font-weight:400;height:40px;">
                                         <div class="t-input-error"></div>
                                     </div>
                                 </div>
                                 <div class="t-input-group t-input-group_in" data-input-lid="1531306540094"
                                      style="margin-bottom:20px;">
-                                    <div class="t-input-block"><input type="text" name="Input"
-                                                                      class="t-input js-tilda-rule  " value=""
-                                                                      placeholder="Password"
-                                                                      style="color:#000;  background-color:#fff; border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;font-size:16px;font-weight:400;height:40px;">
+                                    <div class="t-input-block">
+                                        <input type="text" name="Input"
+                                               class="t-input js-tilda-rule  " value=""
+                                               placeholder="Password"
+                                               style="color:#000;  background-color:#fff; border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;font-size:16px;font-weight:400;height:40px;">
                                         <div class="t-input-error"></div>
                                     </div>
                                 </div>
@@ -177,7 +180,8 @@
                      data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value=""
                      data-field-leftunits-value="" data-field-heightunits-value="" data-field-widthunits-value=""
                      data-fields="top,left,width,height,container,axisx,axisy,caption,leftunits,topunits"
-                     style="top: 25px; left: 1043px; width: 100px; height: 35px;"><a class="tn-atom" href="/explore">Explore</a>
+                     style="top: 25px; left: 1043px; width: 100px; height: 35px;">
+                    <a class="tn-atom" href="/explore">Explore</a>
                 </div>
                 <div class="t396__elem tn-elem tn-elem__1574004191581438555834" data-elem-id="1581438555834"
                      data-elem-type="button" data-field-top-value="25" data-field-left-value="1150"

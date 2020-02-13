@@ -1,7 +1,7 @@
 package com.softserve.firstdemo.entity;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,7 +12,8 @@ public class Project {
     private Date startDate;
     private int duration;
     private String urlImage;
-    private Location location;
+    private Country country;
+    private City city;
 
     private List<User> users = new ArrayList<>();
     private List<Skill> skills = new ArrayList<>();
@@ -22,25 +23,25 @@ public class Project {
     public Project() {
     }
 
-    public Project(int id, String name, String description,
-                   Date startDate, int duration, String urlImage,
-                   Location location) {
+    public Project(int id, String name, String description, Date startDate, int duration, String urlImage, Country country, City city) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.duration = duration;
         this.urlImage = urlImage;
-        this.location = location;
+        this.country = country;
+        this.city = city;
     }
 
-    public Project(String name, String description, Date startDate, int duration, String urlImage, Location location) {
+    public Project(String name, String description, Date startDate, int duration, String urlImage, Country country, City city) {
         this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.duration = duration;
         this.urlImage = urlImage;
-        this.location = location;
+        this.country = country;
+        this.city = city;
     }
 
     public int getId() {
@@ -83,20 +84,28 @@ public class Project {
         this.duration = duration;
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
     public String getUrlImage() {
         return urlImage;
     }
 
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 
     public List<User> getUsers() {
@@ -142,12 +151,13 @@ public class Project {
                 Objects.equals(description, project.description) &&
                 Objects.equals(startDate, project.startDate) &&
                 Objects.equals(urlImage, project.urlImage) &&
-                Objects.equals(location, project.location);
+                Objects.equals(country, project.country) &&
+                Objects.equals(city, project.city);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, startDate, duration, urlImage, location);
+        return Objects.hash(id, name, description, startDate, duration, urlImage, country, city);
     }
 
     @Override
@@ -159,7 +169,8 @@ public class Project {
                 ", startDate=" + startDate +
                 ", duration=" + duration +
                 ", urlImage='" + urlImage + '\'' +
-                ", location=" + location +
+                ", country=" + country +
+                ", city=" + city +
                 '}';
     }
 }

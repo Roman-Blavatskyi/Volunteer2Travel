@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BackgroundDao implements IGeneralDao<Background, Integer> {
+public class BackgroundDao implements IGeneralDao<Background> {
     private static final String CREATE_BACKGROUND = "INSERT INTO BACKGROUNDS (NAME) VALUES (?)";
     private static final String READ_ALL_BACKGROUNDS = "SELECT * FROM BACKGROUNDS";
     private static final String READ_BACKGROUND_BY_ID = "SELECT * FROM BACKGROUNDS WHERE ID = ?";
@@ -54,7 +54,7 @@ public class BackgroundDao implements IGeneralDao<Background, Integer> {
     }
 
     @Override
-    public Background readById(Integer id) {
+    public Background readById(int id) {
         Background background = new Background();
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_BACKGROUND_BY_ID)) {
@@ -76,12 +76,12 @@ public class BackgroundDao implements IGeneralDao<Background, Integer> {
     }
 
     @Override
-    public void update(Background background, Integer id) {
+    public void update(Background background) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BACKGROUND)) {
 
             preparedStatement.setString(1, background.getName());
-            preparedStatement.setInt(2, id);
+            preparedStatement.setInt(2, background.getId());
 
             preparedStatement.executeUpdate();
 
@@ -93,7 +93,7 @@ public class BackgroundDao implements IGeneralDao<Background, Integer> {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(int id) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BACKGROUND)) {
 

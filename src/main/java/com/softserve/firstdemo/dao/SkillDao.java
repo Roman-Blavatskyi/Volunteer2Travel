@@ -8,7 +8,7 @@ import java.util.List;
 
 //import org.apache.log4j.Logger;
 
-public class SkillDao implements IGeneralDao<Skill, Integer> {
+public class SkillDao implements IGeneralDao<Skill> {
     private static final String CREATE_SKILL = "INSERT INTO SKILLS (NAME) VALUES (?)";
     private static final String READ_ALL_SKILLS = "SELECT * FROM SKILLS";
     private static final String READ_SKILL_BY_ID = "SELECT * FROM SKILLS WHERE ID = ?";
@@ -56,7 +56,7 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
     }
 
     @Override
-    public Skill readById(Integer id) {
+    public Skill readById(int id) {
         Skill skill = new Skill();
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_SKILL_BY_ID)) {
@@ -78,12 +78,12 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
     }
 
     @Override
-    public void update(Skill skill, Integer id) {
+    public void update(Skill skill) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SKILL)) {
 
             preparedStatement.setString(1, skill.getName());
-            preparedStatement.setInt(2, id);
+            preparedStatement.setInt(2, skill.getId());
 
             preparedStatement.executeUpdate();
 
@@ -95,7 +95,7 @@ public class SkillDao implements IGeneralDao<Skill, Integer> {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(int id) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SKILL)) {
 

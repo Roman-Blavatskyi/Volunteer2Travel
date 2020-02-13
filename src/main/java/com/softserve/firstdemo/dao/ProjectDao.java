@@ -1,22 +1,25 @@
 package com.softserve.firstdemo.dao;
 
+import com.softserve.firstdemo.entity.City;
 import com.softserve.firstdemo.entity.Project;
-//import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjectDao implements IGeneralDao<Project, Integer> {
+//import org.apache.log4j.Logger;
+
+public class ProjectDao implements IGeneralDao<Project> {
     private static final String CREATE_PROJECT =
-            "INSERT INTO PROJECTS (NAME, DESCRIPTION, STARTDATE, DURATION, URLIMAGE, LOCATIONID) VALUES (?, ?, ?, ?, ?, ?)";
+            "INSERT INTO PROJECTS (name, description, startDate, duration, urlImage, locationId) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String READ_ALL_PROJECTS = "SELECT * FROM PROJECTS";
     private static final String READ_PROJECT_BY_ID = "SELECT * FROM PROJECTS WHERE ID = ?";
     private static final String UPDATE_PROJECT =
             "UPDATE SET PROJECTS NAME=?, DESCRIPTION=?, STARTDATE=?, DURATION=?, URLIMAGE=?, LOCATIONID=?  WHERE ID = ?";
     private static final String DELETE_PROJECT = "DELETE FROM PROJECTS WHERE ID = ?";
-//    private static Logger logger = Logger.getLogger(ProjectDao.class.getName());
-    private static LocationDao locationDao = new LocationDao();
+    private static CountryDao countryDao = new CountryDao();
+    private static CityDao cityDao = new CityDao();
+    //    private static Logger logger = Logger.getLogger(ProjectDao.class.getName());
 
     @Override
     public void create(Project project) {
@@ -28,7 +31,8 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
             preparedStatement.setDate(3, (Date) project.getStartDate());
             preparedStatement.setInt(4, project.getDuration());
             preparedStatement.setString(5, project.getUrlImage());
-            preparedStatement.setInt(6, project.getLocation().getId());
+            preparedStatement.setInt(6, project.getCountry().getId());
+            preparedStatement.setInt(7, project.getCity().getId());
 
             preparedStatement.executeUpdate();
 
@@ -54,7 +58,8 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
                 project.setStartDate(resultSet.getDate("startDate"));
                 project.setDuration(resultSet.getInt("duration"));
                 project.setUrlImage(resultSet.getString("urlImage"));
-                project.setLocation(locationDao.readById(resultSet.getInt("locationId")));
+                project.setCountry(countryDao.readById(resultSet.getInt("countryId")));
+                project.setCity(cityDao.readById(resultSet.getInt("cityId")));
 
                 projects.add(project);
             }
@@ -67,7 +72,7 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
     }
 
     @Override
-    public Project readById(Integer id) {
+    public Project readById(int id) {
         Project project = new Project();
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_PROJECT_BY_ID)) {
@@ -81,7 +86,8 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
             project.setStartDate(resultSet.getDate("startDate"));
             project.setDuration(resultSet.getInt("duration"));
             project.setUrlImage(resultSet.getString("urlImage"));
-            project.setLocation(locationDao.readById(resultSet.getInt("locationId")));
+            project.setCountry(countryDao.readById(resultSet.getInt("countryId")));
+            project.setCity(cityDao.readById(resultSet.getInt("cityId")));
 
             preparedStatement.executeUpdate();
 
@@ -94,7 +100,7 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
     }
 
     @Override
-    public void update(Project project, Integer id) {
+    public void update(Project project) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PROJECT)) {
 
@@ -103,8 +109,10 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
             preparedStatement.setDate(3, (Date) project.getStartDate());
             preparedStatement.setInt(4, project.getDuration());
             preparedStatement.setString(5, project.getUrlImage());
-            preparedStatement.setInt(6, project.getLocation().getId());
-            preparedStatement.setInt(7, id);
+            preparedStatement.setInt(6, project.getCountry().getId());
+            preparedStatement.setInt(7, project.getCity().getId());
+            preparedStatement.setInt(8, project.getId());
+
 
             preparedStatement.executeUpdate();
 
@@ -116,7 +124,7 @@ public class ProjectDao implements IGeneralDao<Project, Integer> {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(int id) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PROJECT)) {
 

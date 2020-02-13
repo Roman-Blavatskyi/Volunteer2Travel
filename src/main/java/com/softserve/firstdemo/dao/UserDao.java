@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UserDao implements IGeneralDao<User, Integer> {
+public class UserDao implements IGeneralDao<User> {
     private static final String CREATE_USER =
             "INSERT INTO USERS (NAME, SURNAME, EMAIL, PASSWORD, PHONE, URLIMAGE, COUNTRYID) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String READ_ALL_USERS = "SELECT * FROM USERS";
@@ -71,7 +71,7 @@ public class UserDao implements IGeneralDao<User, Integer> {
     }
 
     @Override
-    public User readById(Integer id) {
+    public User readById(int id) {
         User user = new User();
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_USER_BY_ID)) {
@@ -99,7 +99,7 @@ public class UserDao implements IGeneralDao<User, Integer> {
     }
 
     @Override
-    public void update(User user, Integer id) {
+    public void update(User user) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)) {
 
@@ -110,7 +110,7 @@ public class UserDao implements IGeneralDao<User, Integer> {
             preparedStatement.setString(5, user.getPhone());
             preparedStatement.setString(6, user.getUrlImage());
             preparedStatement.setInt(7, user.getCountry().getId());
-            preparedStatement.setInt(8, id);
+            preparedStatement.setInt(8, user.getId());
 
             preparedStatement.executeUpdate();
 
@@ -122,7 +122,7 @@ public class UserDao implements IGeneralDao<User, Integer> {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(int id) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER)) {
 

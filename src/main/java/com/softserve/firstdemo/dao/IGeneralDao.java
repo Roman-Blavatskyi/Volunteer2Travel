@@ -2,15 +2,15 @@ package com.softserve.firstdemo.dao;
 
 import java.util.List;
 
-public interface IGeneralDao<T, N> {
+public interface IGeneralDao<T> {
 
     void create(T t);
 
     List<T> readAll();
 
-    T readById(N n);
+    T readById(int id);
 
-    void update(T t, N n);
+    void update(T t);
 
-    void delete(N n);
+    void delete(int id);
 }
