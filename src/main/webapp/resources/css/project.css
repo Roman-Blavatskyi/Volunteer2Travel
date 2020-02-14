@@ -1,0 +1,41 @@
+body {
+    width: 100%;
+    margin: 0px;
+}
+
+#headerPhoto {
+    height: 350px;
+    width: 100%;
+    background-image: url("/static/images/1566119100.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.buttons {
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 225, 0);
+    opacity: 1;
+    transform: rotate(0deg);
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: transparent;
+    border-style: solid;
+    box-shadow: none;
+    transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+    text-align: center;
+    font-size: 16px;
+    width: 100px;
+    height: 35px;
+    font-family: Arial;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    float: right;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
