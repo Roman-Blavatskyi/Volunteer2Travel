@@ -5,8 +5,12 @@ body {
 
 #projectId {
     height: 200px;
-    margin: 20px;
-    background-color: #ffe100;
+    line-height: 30px;
+    border: 1px solid black;
+    margin: 10px;
+    font-style: normal;
+    font-family: Bahnschrift;
+    font-size: 15px;
 }
 
 #headerPhoto {
@@ -17,7 +21,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.buttons{
+.buttons {
     margin: 10px;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 225, 0);
@@ -40,7 +44,26 @@ body {
     float: right;
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
     color: black;
+}
+
+.elements {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+#description {
+    height: 150px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+p {
+    margin: 5px;
+    font-style: normal;
+    font-family: Bahnschrift;
+    font-size: 20px;
 }

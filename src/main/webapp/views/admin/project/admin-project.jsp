@@ -16,19 +16,21 @@
 <div id="projects">
     <c:forEach var="project" items="${requestScope.admin_projects}">
         <div id="projectId">
-            <br>${project.name}
-            <br>${project.description}
-            <br>${project.startDate}
-            <br>${project.duration} months
-            <br>${project.country.name}
-            <br>${project.city.name}
 
-            <form method="get" action="/admin-page/update-project">
+            <img class="elements" src="${project.urlImage}" height="200px" width="300px">
+            <div id="description" class="elements">
+                <p>${project.name}</p>
+                <p>${project.startDate} ~ ${project.duration} weeks</p>
+                <br>
+                <p>${project.country.name}, ${project.city.name}</p>
+            </div>
+
+            <form class="elements" method="get" action="/admin-page/update-project">
                 <input type="number" hidden name="id" value="${project.id}"/>
                 <input type="submit" value="Edit"/>
             </form>
 
-            <form method="post" action="/admin-page/delete-project">
+            <form class="elements" method="post" action="/admin-page/delete-project">
                 <input type="number" hidden name="id" value="${project.id}"/>
                 <input type="submit" name="delete" value="Delete"/>
             </form>

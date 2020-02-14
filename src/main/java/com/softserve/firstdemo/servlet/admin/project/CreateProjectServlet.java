@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 
-@WebServlet("/admin-page/createProject")
+@WebServlet("/admin-page/create-project")
 public class CreateProjectServlet extends HttpServlet {
     private ProjectService projectService = new ProjectService();
 

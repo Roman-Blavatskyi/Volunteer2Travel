@@ -10,16 +10,16 @@
 <html>
 <head>
     <title>Volunteer2Travel</title>
+    <link rel="stylesheet" href="/static/css/project.css" type="text/css"/>
 </head>
 <body>
-<a href="/">Home</a>
-<a href="/explore">Explore</a>
 <div id="projectId">
 
-    <br>${project.name}
-    <br>${project.description}
-    <br>${project.startDate}
-    <br>${project.duration} months
+    <div id="headerPhoto">
+        <button class="buttons"><a href="/registration">Sign up</a></button>
+        <button class="buttons"><a href="/explore">Explore</a></button>
+    </div>
+
 </div>
 </body>
 </html>

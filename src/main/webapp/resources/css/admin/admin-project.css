@@ -1,21 +1,41 @@
 #projects {
-    width: 300px;
     margin-top: 10px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-
 }
 
 #projectId {
-    height: 300px;
-    width: 300;
+    height: 200px;
     background-color: antiquewhite;
     line-height: 30px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin: 10px;
-    text-align: center;
     font-style: normal;
     font-family: Bahnschrift;
     font-size: 15px;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+
+.elements {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+#description {
+    height: 150px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+p {
+    margin: 5px;
+    font-style: normal;
+    font-family: Bahnschrift;
+    font-size: 20px;
+}
+
+input {
+    font-size: 18px;
+    width: 100px;
 }

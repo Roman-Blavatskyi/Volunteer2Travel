@@ -21,19 +21,21 @@
         <button class="buttons"><a href="/registration">Sign up</a></button>
     </div>
 
-    <c:forEach var="project" items="${requestScope.projects}">
-        <a href="/project-detailed">
-            <div id="projectId">
-                <br>${project.name}
-                <br>${project.description}
-                <br>${project.startDate}
-                <br>${project.duration} months
-                <br>${project.country.name}
-                <br>${project.city.name}
-            </div>
-        </a>
-    </c:forEach>
 
+    <c:forEach var="project" items="${requestScope.projects}">
+
+        <div id="projectId">
+            <a href="/project-detailed">
+                <img class="elements" src="${project.urlImage}" height="200px" width="300px">
+                <div id="description" class="elements">
+                    <p>${project.name}</p>
+                    <p>${project.startDate} ~ ${project.duration} weeks</p>
+                    <br>
+                    <p>${project.country.name}, ${project.city.name}</p>
+                </div>
+            </a>
+        </div>
+    </c:forEach>
 </div>
 </body>
 </html>
