@@ -60,11 +60,9 @@ public class CityDao implements IGeneralDao<City> {
 
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
+            resultSet.next();
             city.setId(resultSet.getInt("id"));
             city.setName(resultSet.getString("name"));
-
-            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
   /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
@@ -114,10 +112,13 @@ public class CityDao implements IGeneralDao<City> {
             preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            city.setId(resultSet.getInt("id"));
-            city.setName(resultSet.getString("name"));
 
-            preparedStatement.executeUpdate();
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                city.setId(resultSet.getInt("id"));
+                city.setName(resultSet.getString("name"));
+            }
 
         } catch (SQLException e) {
   /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");

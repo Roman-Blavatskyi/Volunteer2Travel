@@ -1,0 +1,21 @@
+#projects {
+    width: 300px;
+    margin-top: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+}
+
+#projectId {
+    height: 300px;
+    width: 300;
+    background-color: antiquewhite;
+    line-height: 30px;
+    border: 2px solid black;
+    margin: 10px;
+    text-align: center;
+    font-style: normal;
+    font-family: Bahnschrift;
+    font-size: 15px;
+}

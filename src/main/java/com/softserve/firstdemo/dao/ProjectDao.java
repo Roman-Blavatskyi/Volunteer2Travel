@@ -1,6 +1,5 @@
 package com.softserve.firstdemo.dao;
 
-import com.softserve.firstdemo.entity.City;
 import com.softserve.firstdemo.entity.Project;
 
 import java.sql.*;
@@ -11,11 +10,10 @@ import java.util.List;
 
 public class ProjectDao implements IGeneralDao<Project> {
     private static final String CREATE_PROJECT =
-            "INSERT INTO PROJECTS (name, description, startDate, duration, urlImage, locationId) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            "INSERT INTO PROJECTS (name, description, startDate, duration, urlImage, countryId, cityId) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String READ_ALL_PROJECTS = "SELECT * FROM PROJECTS";
     private static final String READ_PROJECT_BY_ID = "SELECT * FROM PROJECTS WHERE ID = ?";
-    private static final String UPDATE_PROJECT =
-            "UPDATE SET PROJECTS NAME=?, DESCRIPTION=?, STARTDATE=?, DURATION=?, URLIMAGE=?, LOCATIONID=?  WHERE ID = ?";
+    private static final String UPDATE_PROJECT = "UPDATE PROJECTS SET NAME=?, DESCRIPTION=?, STARTDATE=?, DURATION=?, URLIMAGE=?, COUNTRYID=?, CITYID=? WHERE ID = ?";
     private static final String DELETE_PROJECT = "DELETE FROM PROJECTS WHERE ID = ?";
     private static CountryDao countryDao = new CountryDao();
     private static CityDao cityDao = new CityDao();
@@ -79,6 +77,7 @@ public class ProjectDao implements IGeneralDao<Project> {
 
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
 
             project.setId(resultSet.getInt("id"));
             project.setName(resultSet.getString("name"));
@@ -88,8 +87,6 @@ public class ProjectDao implements IGeneralDao<Project> {
             project.setUrlImage(resultSet.getString("urlImage"));
             project.setCountry(countryDao.readById(resultSet.getInt("countryId")));
             project.setCity(cityDao.readById(resultSet.getInt("cityId")));
-
-            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
           /*  logger.info("There are problems with reading projects by id from `Projects` table | ProjectDAO Exception.");
@@ -112,7 +109,6 @@ public class ProjectDao implements IGeneralDao<Project> {
             preparedStatement.setInt(6, project.getCountry().getId());
             preparedStatement.setInt(7, project.getCity().getId());
             preparedStatement.setInt(8, project.getId());
-
 
             preparedStatement.executeUpdate();
 

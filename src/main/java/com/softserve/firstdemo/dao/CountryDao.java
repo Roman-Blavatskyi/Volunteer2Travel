@@ -1,11 +1,12 @@
 package com.softserve.firstdemo.dao;
 
 import com.softserve.firstdemo.entity.Country;
-//import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+//import org.apache.log4j.Logger;
 
 public class CountryDao implements IGeneralDao<Country> {
     private static final String CREATE_COUNTRY = "INSERT INTO COUNTRIES (NAME) VALUES (?)";
@@ -62,11 +63,9 @@ public class CountryDao implements IGeneralDao<Country> {
 
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
+            resultSet.next();
             country.setId(resultSet.getInt("id"));
             country.setName(resultSet.getString("name"));
-
-            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
   /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
@@ -108,7 +107,7 @@ public class CountryDao implements IGeneralDao<Country> {
         }
     }
 
-    public Country readCountryByName(String name){
+    public Country readCountryByName(String name) {
         Country country = new Country();
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(READ_COUNTRY_BY_NAME)) {
@@ -116,10 +115,13 @@ public class CountryDao implements IGeneralDao<Country> {
             preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            country.setId(resultSet.getInt("id"));
-            country.setName(resultSet.getString("name"));
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                country.setId(resultSet.getInt("id"));
+                country.setName(resultSet.getString("name"));
+            }
 
-            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
   /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");

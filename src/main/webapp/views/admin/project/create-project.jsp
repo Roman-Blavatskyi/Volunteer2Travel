@@ -11,7 +11,7 @@
     <title>Volunteer2Travel</title>
 </head>
 <body>
-<form id="createForm" action="/createProject" , method="post">
+<form id="createForm" action="/admin-page/createProject" method="post">
 
     <input name="name" type="text" placeholder="Project name">
 

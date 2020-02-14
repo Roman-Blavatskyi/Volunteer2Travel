@@ -1,10 +1,14 @@
 package com.softserve.firstdemo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class City {
     private int id;
     private String name;
+
+    private List<Project> projectList = new ArrayList<>();
 
     public City() {
     }
@@ -32,6 +36,14 @@ public class City {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Project> getProjectList() {
+        return projectList;
+    }
+
+    public void setProjectList(List<Project> projectList) {
+        this.projectList = projectList;
     }
 
     @Override

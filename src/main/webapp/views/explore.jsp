@@ -22,12 +22,14 @@
     </div>
 
     <c:forEach var="project" items="${requestScope.projects}">
-        <a href="/project">
+        <a href="/project-detailed">
             <div id="projectId">
                 <br>${project.name}
                 <br>${project.description}
                 <br>${project.startDate}
                 <br>${project.duration} months
+                <br>${project.country.name}
+                <br>${project.city.name}
             </div>
         </a>
     </c:forEach>

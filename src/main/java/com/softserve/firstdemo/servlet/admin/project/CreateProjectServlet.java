@@ -1,4 +1,4 @@
-package com.softserve.firstdemo.servlet;
+package com.softserve.firstdemo.servlet.admin.project;
 
 import com.softserve.firstdemo.service.ProjectService;
 
@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 
-@WebServlet("/createProject")
+@WebServlet("/admin-page/createProject")
 public class CreateProjectServlet extends HttpServlet {
     private ProjectService projectService = new ProjectService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/views/createProject.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/admin/project/create-project.jsp").forward(req, resp);
     }
 
     @Override
@@ -30,6 +30,6 @@ public class CreateProjectServlet extends HttpServlet {
         String city = req.getParameter("city");
 
         projectService.addProject(name, description, startDate, duration, urlImage, country, city);
-        resp.sendRedirect("/views/explore");
+        resp.sendRedirect("/admin-page/project");
     }
 }

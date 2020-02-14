@@ -9,6 +9,7 @@ public class Country {
     private String name;
 
     private List<User> users = new ArrayList<>();
+    private List<Project> projects = new ArrayList<>();
 
     public Country() {
     }
@@ -44,6 +45,14 @@ public class Country {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 
     @Override
