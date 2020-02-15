@@ -123,5 +123,13 @@
         });</script>
     </div>
 </div>
+
+<script type="text/javascript">
+    var Msg = '<%=(String)request.getAttribute("msg")%>';
+    if (Msg != "null") {
+        alert(Msg);
+    }
+</script>
+
 </body>
 </html>

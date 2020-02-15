@@ -2,6 +2,7 @@ package com.softserve.firstdemo.servlet.admin.project;
 
 import com.softserve.firstdemo.service.ProjectService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,12 +25,19 @@ public class CreateProjectServlet extends HttpServlet {
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         Date startDate = Date.valueOf(req.getParameter("startDate"));
-        int duration = Integer.valueOf(req.getParameter("duration"));
+        String duration = req.getParameter("duration");
         String urlImage = req.getParameter("urlImage");
         String country = req.getParameter("country");
         String city = req.getParameter("city");
 
-        projectService.addProject(name, description, startDate, duration, urlImage, country, city);
-        resp.sendRedirect("/admin-page/project");
+        try {
+            projectService.addProject(name, description, startDate, duration, urlImage, country, city);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/views/admin/project/admin-project.jsp");
+            rd.forward(req, resp);
+        } catch (IllegalArgumentException e) {
+            req.setAttribute("msg", e.getMessage());
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/views/admin/project/create-project.jsp");
+            requestDispatcher.forward(req, resp);
+        }
     }
 }

@@ -7,9 +7,11 @@ import java.util.List;
 
 public class CityService {
 
+
     private CityDao cityDao = new CityDao();
 
     public void addCity(String name) {
+
         City city = new City(name);
         cityDao.create(city);
     }

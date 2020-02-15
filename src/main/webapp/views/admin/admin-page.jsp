@@ -24,5 +24,13 @@
     <a href="/admin-page/background"><div class="options">Backgrounds</div></a>
     <a href="/admin-page/language"><div class="options">Languages</div></a>
 </div>
+
+<script type="text/javascript">
+    var Msg = '<%=(String)request.getAttribute("msg")%>';
+    if (Msg != "null") {
+        alert(Msg);
+    }
+</script>
+
 </body>
 </html>

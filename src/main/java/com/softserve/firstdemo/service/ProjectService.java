@@ -3,9 +3,11 @@ package com.softserve.firstdemo.service;
 import com.softserve.firstdemo.dao.CityDao;
 import com.softserve.firstdemo.dao.CountryDao;
 import com.softserve.firstdemo.dao.ProjectDao;
-import com.softserve.firstdemo.entity.City;
-import com.softserve.firstdemo.entity.Country;
 import com.softserve.firstdemo.entity.Project;
+import com.softserve.firstdemo.service.validation.CityValidator;
+import com.softserve.firstdemo.service.validation.CountryValidatorForProject;
+import com.softserve.firstdemo.service.validation.IntegerValidator;
+import com.softserve.firstdemo.service.validation.StringValidator;
 
 import java.sql.Date;
 import java.util.List;
@@ -17,59 +19,28 @@ public class ProjectService {
     private ProjectDao projectDao = new ProjectDao();
     private CountryDao countryDao = new CountryDao();
     private CityDao cityDao = new CityDao();
+    private StringValidator stringValidator = new StringValidator();
+    private CountryValidatorForProject countryValidator = new CountryValidatorForProject();
+    private CityValidator cityValidator = new CityValidator();
+    private IntegerValidator integerValidator = new IntegerValidator();
 
-    public void addProject(String name, String description, Date startDate, int duration,
+    public void addProject(String name, String description, Date startDate, String duration,
                            String urlImage, String country, String city) {
 
         Project project = new Project();
+        stringValidator.validateString(name);
+        project.setName(name);
+        stringValidator.validateString(description);
+        project.setDescription(description);
+        project.setStartDate(startDate);
+        integerValidator.validateInteger(duration);
+        project.setDuration(Integer.valueOf(duration));
+        project.setUrlImage(urlImage);
+        stringValidator.validateString(country);
+        countryValidator.validateCountry(project, country);
+        stringValidator.validateString(city);
+        cityValidator.validateCity(project, city);
 
-        if (name != null && !name.equalsIgnoreCase("")) {
-            project.setName(name);
-        }
-
-
-        if (description != null && !description.equalsIgnoreCase("")) {
-            project.setDescription(description);
-        }
-
-        if (startDate != null) {
-            project.setStartDate(startDate);
-        }
-
-        if (duration != 0) {
-            project.setDuration(duration);
-        }
-
-        if (urlImage != null && !urlImage.equalsIgnoreCase("")) {
-            project.setUrlImage(urlImage);
-        }
-
-        if (country != null && !country.equalsIgnoreCase("")) {
-            Country country1 = countryDao.readCountryByName(country);
-            if (country1 != null) {
-                project.setCountry(country1);
-            } else {
-                country1 = new Country();
-                country1.setName(country);
-                countryDao.create(country1);
-                country1 = countryDao.readCountryByName(country);
-                project.setCountry(country1);
-            }
-
-        }
-
-        if (city != null && !city.equalsIgnoreCase("")) {
-            City city1 = cityDao.readCityByName(city);
-            if (city1 != null) {
-                project.setCity(city1);
-            } else {
-                city1 = new City();
-                city1.setName(city);
-                cityDao.create(city1);
-                city1 = cityDao.readCityByName(city);
-                project.setCity(city1);
-            }
-        }
         projectDao.create(project);
     }
 
@@ -81,57 +52,23 @@ public class ProjectService {
         return projectDao.readAll();
     }
 
-    public void editProject(int id, String name, String description, Date startDate, int duration,
+    public void editProject(int id, String name, String description, Date startDate, String duration,
                             String urlImage, String country, String city) {
 
         Project project = projectDao.readById(id);
 
-        if (name != null && !name.equalsIgnoreCase("")) {
-            project.setName(name);
-        }
-
-        if (description != null && !description.equalsIgnoreCase("")) {
-            project.setDescription(description);
-        }
-
-        if (startDate != null) {
-            project.setStartDate(startDate);
-        }
-
-        if (duration != 0) {
-            project.setDuration(duration);
-        }
-
-        if (urlImage != null && !urlImage.equalsIgnoreCase("")) {
-            project.setUrlImage(urlImage);
-        }
-
-        if (country != null && !country.equalsIgnoreCase("")) {
-            Country country1 = countryDao.readCountryByName(country);
-            if (country1 != null) {
-                project.setCountry(country1);
-            } else {
-                country1 = new Country();
-                country1.setName(country);
-                countryDao.create(country1);
-                country1 = countryDao.readCountryByName(country);
-                project.setCountry(country1);
-            }
-
-        }
-
-        if (city != null && !city.equalsIgnoreCase("")) {
-            City city1 = cityDao.readCityByName(city);
-            if (city1 != null) {
-                project.setCity(city1);
-            } else {
-                city1 = new City();
-                city1.setName(city);
-                cityDao.create(city1);
-                city1 = cityDao.readCityByName(city);
-                project.setCity(city1);
-            }
-        }
+        stringValidator.validateString(name);
+        project.setName(name);
+        stringValidator.validateString(description);
+        project.setDescription(description);
+        project.setStartDate(startDate);
+        integerValidator.validateInteger(duration);
+        project.setDuration(Integer.valueOf(duration));
+        project.setUrlImage(urlImage);
+        stringValidator.validateString(country);
+        countryValidator.validateCountry(project, country);
+        stringValidator.validateString(city);
+        cityValidator.validateCity(project, city);
 
         projectDao.update(project);
 

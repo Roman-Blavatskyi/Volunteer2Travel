@@ -2,6 +2,7 @@ package com.softserve.firstdemo.controller;
 
 import com.softserve.firstdemo.service.UserService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +30,15 @@ public class RegistrationServlet extends HttpServlet {
         String password = req.getParameter("password");
         String repeatPassword = req.getParameter("repeat password");
 
-        userService.addUser(name, surname, country, phone, email, password, repeatPassword);
-        resp.sendRedirect("/login");
+        try {
+            userService.addUser(name, surname, country, phone, email, password, repeatPassword);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/views/login.jsp");
+            req.setAttribute("msg", "You registered successfully!");
+            rd.forward(req, resp);
+        } catch (IllegalArgumentException e) {
+            req.setAttribute("msg", e.getMessage());
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/views/registration.jsp");
+            requestDispatcher.forward(req, resp);
+        }
     }
 }

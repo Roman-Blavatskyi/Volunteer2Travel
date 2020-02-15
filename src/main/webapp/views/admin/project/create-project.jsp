@@ -31,5 +31,13 @@
 
     <button type="submit">Create</button>
 </form>
+
+<script type="text/javascript">
+    var Msg = '<%=(String)request.getAttribute("msg")%>';
+    if (Msg != "null") {
+        alert(Msg);
+    }
+</script>
+
 </body>
 </html>

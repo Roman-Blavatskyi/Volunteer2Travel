@@ -15,6 +15,7 @@ public class UserDao implements IGeneralDao<User> {
     private static final String READ_ALL_USERS = "SELECT * FROM USERS";
     private static final String READ_USER_BY_ID = "SELECT * FROM USERS WHERE ID = ?";
     private static final String READ_USER_BY_EMAIL = "SELECT * FROM USERS WHERE EMAIL = ?";
+    private static final String READ_USER_BY_PHONE = "SELECT * FROM USERS WHERE PHONE = ?";
     private static final String UPDATE_USER =
             "UPDATE USERS SET NAME=?, SURNAME=?, EMAIL=?, PASSWORD=?, PHONE=?, URLIMAGE=?, COUNTRYID=? WHERE ID = ?";
     private static final String DELETE_USER = "DELETE FROM USERS WHERE ID = ?";
@@ -144,6 +145,35 @@ public class UserDao implements IGeneralDao<User> {
              PreparedStatement preparedStatement = connection.prepareStatement(READ_USER_BY_EMAIL)) {
 
             preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setSurname(resultSet.getString("surname"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setPhone(resultSet.getString("phone"));
+                user.setUrlImage(resultSet.getString("urlImage"));
+                user.setCountry(countryDao.readById(resultSet.getInt("countryId")));
+                user.setUserRole(resultSet.getString("role"));
+            }
+        } catch (SQLException e) {
+         /*   logger.info("There are problems with reading users by id from `Users` table | UserDAO Exception.");
+            logger.info(e);*/
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    public User readByPhoneNumber(String phoneNumber) {
+        User user = new User();
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(READ_USER_BY_PHONE)) {
+
+            preparedStatement.setString(1, phoneNumber);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next() == false) {

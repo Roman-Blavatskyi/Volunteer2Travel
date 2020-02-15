@@ -207,6 +207,13 @@
         <script>$(document).ready(function () {
             t396_init('157055403');
         });</script><!-- /T396 --></div>
+
+    <script type="text/javascript">
+        var Msg = '<%=(String)request.getAttribute("msg")%>';
+        if (Msg != "null") {
+            alert(Msg);
+        }
+    </script>
 </div>
 </body>
 </html>

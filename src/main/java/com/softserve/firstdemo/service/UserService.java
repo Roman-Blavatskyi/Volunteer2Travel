@@ -2,8 +2,8 @@ package com.softserve.firstdemo.service;
 
 import com.softserve.firstdemo.dao.CountryDao;
 import com.softserve.firstdemo.dao.UserDao;
-import com.softserve.firstdemo.entity.Country;
 import com.softserve.firstdemo.entity.User;
+import com.softserve.firstdemo.service.validation.*;
 
 import java.util.List;
 
@@ -12,27 +12,29 @@ public class UserService {
     private static final String ROLE_USER = "ROLE_USER";
     private static UserDao userDao = new UserDao();
     private CountryDao countryDao = new CountryDao();
+    private StringValidator stringValidator = new StringValidator();
+    private EmailValidator emailValidator = new EmailValidator();
+    private PasswordValidator passwordValidator = new PasswordValidator();
+    private PhoneValidator phoneValidator = new PhoneValidator();
+    private CountryValidatorForUser countryValidator = new CountryValidatorForUser();
 
     public void addUser(String name, String surname, String country, String phone,
                         String email, String password, String repeatPassword) {
 
         User user = new User();
+        stringValidator.validateString(name);
         user.setName(name);
+        stringValidator.validateString(surname);
         user.setSurname(surname);
-
-        Country country1 = countryDao.readCountryByName(country);
-        if (country1 != null) {
-            user.setCountry(country1);
-        } else {
-            country1 = new Country();
-            country1.setName(country);
-            countryDao.create(country1);
-            country1 = countryDao.readCountryByName(country);
-            user.setCountry(country1);
-        }
+        stringValidator.validateString(country);
+        countryValidator.validateCountry(user, country);
+        phoneValidator.validatePhoneNumber(phone);
         user.setPhone(phone);
+        emailValidator.validateEmail(email);
         user.setEmail(email);
+        passwordValidator.validatePassword(password, repeatPassword);
         user.setPassword(password);
+
         userDao.create(user);
     }
 
@@ -52,23 +54,19 @@ public class UserService {
                          String email, String password) {
 
         User user = userDao.readById(id);
+        stringValidator.validateString(name);
         user.setName(name);
+        stringValidator.validateString(surname);
         user.setSurname(surname);
-
-        Country country1 = countryDao.readCountryByName(country);
-        if (country1 != null) {
-            user.setCountry(country1);
-        } else {
-            country1 = new Country();
-            country1.setName(country);
-            countryDao.create(country1);
-            country1 = countryDao.readCountryByName(country);
-            user.setCountry(country1);
-        }
-
+        stringValidator.validateString(country);
+        countryValidator.validateCountry(user, country);
+        phoneValidator.validatePhoneNumber(phone);
         user.setPhone(phone);
+        emailValidator.validateEmail(email);
         user.setEmail(email);
+        passwordValidator.validatePasswordLength(password);
         user.setPassword(password);
+
         userDao.update(user);
     }
 
