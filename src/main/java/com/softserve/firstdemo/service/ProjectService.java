@@ -90,7 +90,6 @@ public class ProjectService {
             project.setName(name);
         }
 
-
         if (description != null && !description.equalsIgnoreCase("")) {
             project.setDescription(description);
         }

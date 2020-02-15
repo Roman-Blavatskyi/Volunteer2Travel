@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="/static/css/admin-page.css" type="text/css" media="all">
 </head>
 <body>
+<div id="header">
+    <button class="buttons"><a href="/logout">Log out</a></button>
+</div>
 <h1>Admin Panel</h1>
 <div id="entities">
     <a href="/admin-page/project"><div class="options">Projects</div></a>
-    <a href="/admin-page/user"><div class="options">Users</div></a>
     <a href="/admin-page/country"><div class="options">Countries</div></a>
     <a href="/admin-page/city"><div class="options">Cities</div></a>
     <a href="/admin-page/skill"><div class="options">Skills</div></a>

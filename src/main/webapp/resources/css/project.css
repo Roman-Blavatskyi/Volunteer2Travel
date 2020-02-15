@@ -12,6 +12,14 @@ body {
     background-repeat: no-repeat;
 }
 
+img {
+    height: 350px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .buttons {
     margin: 10px;
     color: rgb(0, 0, 0);
@@ -38,4 +46,10 @@ body {
 a {
     text-decoration: none;
     color: black;
+}
+
+#description {
+    height: 350px;
+    width: 100%;
+    background-color: whitesmoke;
 }

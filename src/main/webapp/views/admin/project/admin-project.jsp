@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="/static/css/admin/admin-project.css" type="text/css" media="all">
 </head>
 <body>
+<div id="header">
+    <button class="buttons"><a href="/admin-page">Panel</a></button>
+</div>
+<a href="/admin-page/create-project"><div id = "addProject">Create project</div></a>
+
 <div id="projects">
     <c:forEach var="project" items="${requestScope.admin_projects}">
         <div id="projectId">

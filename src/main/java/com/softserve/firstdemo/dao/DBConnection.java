@@ -5,7 +5,6 @@ package com.softserve.firstdemo.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 public class DBConnection {
     private final static String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -23,8 +22,8 @@ public class DBConnection {
         try {
             Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(URL, NAME, PASSWORD);
-        }catch (SQLException | ClassNotFoundException e) {
-           // Logger.getGlobal().info("Connected Error");
+        } catch (SQLException | ClassNotFoundException e) {
+            // Logger.getGlobal().info("Connected Error");
             e.printStackTrace();
         }
         return connection;

@@ -1,11 +1,12 @@
 package com.softserve.firstdemo.dao;
 
 import com.softserve.firstdemo.entity.Background;
-//import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+//import org.apache.log4j.Logger;
 
 public class BackgroundDao implements IGeneralDao<Background> {
     private static final String CREATE_BACKGROUND = "INSERT INTO BACKGROUNDS (NAME) VALUES (?)";

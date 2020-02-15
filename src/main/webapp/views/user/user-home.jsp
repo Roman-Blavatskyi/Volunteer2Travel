@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Roman
-  Date: 03.02.2020
-  Time: 2:34
+  Date: 15.02.2020
+  Time: 12:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,7 +10,6 @@
 <head>
     <title>Volunteer2Travel</title>
     <meta charset="utf-8">
-
     <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-grid-3.0.min.css" type="text/css"
           media="all">
     <link rel="stylesheet" href="https://tilda.ws/project2000062/tilda-blocks-2.12.css?t=1581428244" type="text/css"
@@ -44,9 +43,9 @@
                                     <div class="t183__title t-title t-title_xl" style="" field="title">Feel big changes
                                         happening around you
                                     </div>
-                                    <div class="t183__buttons" style="font-size: 20px">
-                                        <a href="/explore" target="" class="t-btn "
-                                           style="font-size: 20px; color:#000000;background-color:#ffe100;border-radius:100px; -moz-border-radius:100px; -webkit-border-radius:100px;">
+                                    <div class="t183__buttons">
+                                        <a href="/user/explore" target="" class="t-btn "
+                                           style="color:#000000;background-color:#ffe100;border-radius:100px; -moz-border-radius:100px; -webkit-border-radius:100px;">
                                             <table style="width:100%; height:100%; font-size: 16px; font-weight: 800">
                                                 <tbody>
                                                 <tr>
@@ -55,16 +54,7 @@
                                                 </tbody>
                                             </table>
                                         </a>
-                                        <a href="/registration" target="" class="t-btn "
-                                           style="color:#ffffff;border:2px solid #ffffff;border-radius:100px; -moz-border-radius:100px; -webkit-border-radius:100px;">
-                                            <table style="width:100%; height:100%; font-size: 16px; color: white; font-weight: 800">
-                                                <tbody>
-                                                <tr>
-                                                    <td>Sign Up</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

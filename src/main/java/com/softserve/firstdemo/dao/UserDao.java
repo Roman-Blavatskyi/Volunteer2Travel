@@ -1,11 +1,12 @@
 package com.softserve.firstdemo.dao;
 
 import com.softserve.firstdemo.entity.User;
-//import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+//import org.apache.log4j.Logger;
 
 
 public class UserDao implements IGeneralDao<User> {
@@ -13,11 +14,12 @@ public class UserDao implements IGeneralDao<User> {
             "INSERT INTO USERS (NAME, SURNAME, EMAIL, PASSWORD, PHONE, URLIMAGE, COUNTRYID) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String READ_ALL_USERS = "SELECT * FROM USERS";
     private static final String READ_USER_BY_ID = "SELECT * FROM USERS WHERE ID = ?";
+    private static final String READ_USER_BY_EMAIL = "SELECT * FROM USERS WHERE EMAIL = ?";
     private static final String UPDATE_USER =
             "UPDATE USERS SET NAME=?, SURNAME=?, EMAIL=?, PASSWORD=?, PHONE=?, URLIMAGE=?, COUNTRYID=? WHERE ID = ?";
     private static final String DELETE_USER = "DELETE FROM USERS WHERE ID = ?";
-//    private static Logger logger = Logger.getLogger(UserDao.class.getName());
-    private static CountryDao countryDao;
+    //    private static Logger logger = Logger.getLogger(UserDao.class.getName());
+    private static CountryDao countryDao = new CountryDao();
 
     @Override
     public void create(User user) {
@@ -37,7 +39,7 @@ public class UserDao implements IGeneralDao<User> {
         } catch (SQLException e) {
            /* logger.info("There are problems with inserting into `Users` table | UserDAO Exception.");
             logger.info(e);*/
-           e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -134,5 +136,34 @@ public class UserDao implements IGeneralDao<User> {
             logger.info(e);*/
             e.printStackTrace();
         }
+    }
+
+    public User readByEmail(String email) {
+        User user = new User();
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(READ_USER_BY_EMAIL)) {
+
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setSurname(resultSet.getString("surname"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setPhone(resultSet.getString("phone"));
+                user.setUrlImage(resultSet.getString("urlImage"));
+                user.setCountry(countryDao.readById(resultSet.getInt("countryId")));
+                user.setUserRole(resultSet.getString("role"));
+            }
+        } catch (SQLException e) {
+         /*   logger.info("There are problems with reading users by id from `Users` table | UserDAO Exception.");
+            logger.info(e);*/
+            e.printStackTrace();
+        }
+        return user;
     }
 }

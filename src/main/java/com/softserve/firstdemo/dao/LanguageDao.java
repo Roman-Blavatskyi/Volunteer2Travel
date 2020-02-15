@@ -1,11 +1,12 @@
 package com.softserve.firstdemo.dao;
 
 import com.softserve.firstdemo.entity.Language;
-//import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+//import org.apache.log4j.Logger;
 
 public class LanguageDao implements IGeneralDao<Language> {
     private static final String CREATE_LANGUAGE = "INSERT INTO LANGUAGES (NAME) VALUES (?)";

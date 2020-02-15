@@ -13,6 +13,7 @@ public class User {
     private String phone;
     private Country country;
     private String urlImage;
+    private String userRole;
 
     private List<Project> projects = new ArrayList<>();
 
@@ -114,24 +115,33 @@ public class User {
         this.urlImage = urlImage;
     }
 
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id &&
-                name.equals(user.name) &&
-                surname.equals(user.surname) &&
-                email.equals(user.email) &&
-                password.equals(user.password) &&
-                phone.equals(user.phone) &&
-                country.equals(user.country) &&
-                Objects.equals(urlImage, user.urlImage);
+                Objects.equals(name, user.name) &&
+                Objects.equals(surname, user.surname) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(phone, user.phone) &&
+                Objects.equals(country, user.country) &&
+                Objects.equals(urlImage, user.urlImage) &&
+                Objects.equals(userRole, user.userRole);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, email, password, phone, country, urlImage);
+        return Objects.hash(id, name, surname, email, password, phone, country, urlImage, userRole);
     }
 
     @Override
@@ -145,6 +155,7 @@ public class User {
                 ", phone='" + phone + '\'' +
                 ", country=" + country +
                 ", urlImage='" + urlImage + '\'' +
+                ", userRole='" + userRole + '\'' +
                 '}';
     }
 }

@@ -13,23 +13,9 @@
     <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-grid-3.0.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="https://tilda.ws/project2000062/tilda-blocks-2.12.css?t=1581438911" type="text/css"
           media="all">
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-animation-1.0.min.css" type="text/css"
-          media="all">
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-slds-1.4.min.css" type="text/css" media="all">
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-zoom-2.0.min.css" type="text/css" media="all">
-    <script type="text/javascript" async="" id="tildastatscript"
-            src="https://stat.tildacdn.com/js/tildastat-0.2.min.js"></script>
     <script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js"></script>
-    <script src="https://static.tildacdn.com/js/tilda-scripts-2.8.min.js"></script>
     <script src="https://tilda.ws/project2000062/tilda-blocks-2.7.js?t=1581438911"></script>
-    <script src="https://static.tildacdn.com/js/lazyload-1.3.min.js" charset="utf-8"></script>
-    <script src="https://static.tildacdn.com/js/tilda-animation-1.0.min.js" charset="utf-8"></script>
-    <script src="https://static.tildacdn.com/js/tilda-slds-1.4.min.js" charset="utf-8"></script>
-    <script src="https://static.tildacdn.com/js/hammer.min.js" charset="utf-8"></script>
-    <script src="https://static.tildacdn.com/js/tilda-zoom-2.0.min.js" charset="utf-8"></script>
-    <script src="https://static.tildacdn.com/js/tilda-forms-1.0.min.js" charset="utf-8"></script>
-    <script src="https://static.tildacdn.com/js/tilda-zero-forms-1.0.min.js" charset="utf-8"></script>
-    <script type="text/javascript">window.dataLayer = window.dataLayer || [];</script>
+
 
 </head>
 <body class="t-body" style="margin: 0px;" data-gr-c-s-loaded="true"><!--allrecords-->
@@ -66,17 +52,14 @@
                      data-fields="width,top,left,inputs,container,axisx,axisy,widthunits,leftunits,topunits"
                      style="width: 350px; left: -17px; top: 329px;">
                     <div class="tn-atom tn-atom__form">
-                        <form id="form157400419" name="form157400419" role="form"
-                              action="/login" method="GET" data-formactiontype="2"
-                              data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_2  "
-                              data-success-callback="" data-success-popup="y" data-error-popup="y">
+                        <form id="form157400419" action="/login" method="post">
                             <div class="js-successbox t-form__successbox t-text t-text_sm" style="display:none;"></div>
                             <div class="t-form__inputsbox">
                                 <div class="t-input-group t-input-group_em" data-input-lid="1531306243545"
                                      style="margin-bottom:20px;">
                                     <div class="t-input-block">
 
-                                        <input type="text" name="Email"
+                                        <input required type="email" name="email"
                                                class="t-input js-tilda-rule " value=""
                                                placeholder="E-mail" data-tilda-rule="email"
                                                style="color:#000;  background-color:#fff; border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;font-size:16px;font-weight:400;height:40px;">
@@ -86,31 +69,12 @@
                                 <div class="t-input-group t-input-group_in" data-input-lid="1531306540094"
                                      style="margin-bottom:20px;">
                                     <div class="t-input-block">
-                                        <input type="text" name="Input"
+                                        <input required type="password" name="password"
                                                class="t-input js-tilda-rule  " value=""
                                                placeholder="Password"
                                                style="color:#000;  background-color:#fff; border-radius:7px; -moz-border-radius:7px; -webkit-border-radius:7px;font-size:16px;font-weight:400;height:40px;">
                                         <div class="t-input-error"></div>
                                     </div>
-                                </div>
-                                <div class="t-form__errorbox-middle">
-                                    <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
-                                        <div class="t-form__errorbox-text t-text t-text_xs"><p
-                                                class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p>
-                                        </div>
-                                        <div class="tn-form__errorbox-close js-errorbox-close">
-                                            <div class="tn-form__errorbox-close-line tn-form__errorbox-close-line-left"></div>
-                                            <div class="tn-form__errorbox-close-line tn-form__errorbox-close-line-right"></div>
-                                        </div>
-                                    </div>
-                                    <script>$(".tn-atom .js-errorbox-close").click(function () {
-                                        $(this).parent().css("display", "none");
-                                    });</script>
                                 </div>
                                 <div class="tn-form__submit" style="">
                                     <button type="submit" class="t-submit"
@@ -119,51 +83,11 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="t-form__errorbox-bottom">
-                                <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
-                                    <div class="t-form__errorbox-text t-text t-text_xs"><p
-                                            class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
-                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
-                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
-                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
-                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
-                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p></div>
-                                    <div class="tn-form__errorbox-close js-errorbox-close">
-                                        <div class="tn-form__errorbox-close-line tn-form__errorbox-close-line-left"></div>
-                                        <div class="tn-form__errorbox-close-line tn-form__errorbox-close-line-right"></div>
-                                    </div>
-                                </div>
-                                <script>$(".tn-atom .js-errorbox-close").click(function () {
-                                    $(this).parent().css("display", "none");
-                                });</script>
-                            </div>
-                            <div style="position: absolute; left: -5000px; bottom:0;">
-                                <input type="text" name="form-spec-comments" value="Its good"
-                                       class="js-form-spec-comments"
-                                       tabindex="-1">
-                            </div>
                         </form>
                     </div>
                     <div class="tn-atom__inputs-wrapp" style="display:none;">
                         <textarea class="tn-atom__inputs-textarea">{"0":{"lid":"1531306243545","ls":"10","loff":"","li_type":"em","li_ph":"E-mail","li_nm":"Email"},"1":{"lid":"1531306540094","ls":"20","loff":"","li_type":"in","li_ph":"Password","li_nm":"Input"}}</textarea>
                     </div>
-                    <script>$(document).ready(function () {
-                        jQuery.cachedScript = function (url) {
-                            var options = {dataType: "script", cache: true, url: url};
-                            return jQuery.ajax(options);
-                        };
-                        $.cachedScript("https://static.tildacdn.com/js/tilda-zero-forms-1.0.min.js").done(function (script, textStatus) {
-                            if (textStatus == 'success') {
-                                setTimeout(function () {
-                                    var recid = '157400419';
-                                    var elemid = '1579969614212';
-                                    t_zeroForms__init(recid, elemid);
-                                }, 500);
-                            } else {
-                                console.log('Error init form in zeroblock. Err:' + textStatus);
-                            }
-                        });
-                    });</script>
                 </div>
                 <div class="t396__elem tn-elem tn-elem__1574004191579970131102" data-elem-id="1579970131102"
                      data-elem-type="text" data-field-top-value="115" data-field-left-value="-30"

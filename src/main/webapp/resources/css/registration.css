@@ -1,3 +1,20 @@
+@media screen and (min-width: 980px) {
+    .t-records {
+        opacity: 0;
+    }
+
+    .t-records_animated {
+        -webkit-transition: opacity ease-in-out .2s;
+        -moz-transition: opacity ease-in-out .2s;
+        -o-transition: opacity ease-in-out .2s;
+        transition: opacity ease-in-out .2s;
+    }
+
+    .t-records.t-records_visible {
+        opacity: 1;
+    }
+}
+
 #rec157055403 .t396__artboard {
     height: 625px;
     background-color: #736c6c;
@@ -27,38 +44,6 @@
     #rec157055403 .t396__carrier {
         background-attachment: scroll;
     }
-}
-
-@media screen and (max-width: 959px) {
-}
-
-@media screen and (max-width: 639px) {
-}
-
-@media screen and (max-width: 479px) {
-}
-
-#rec157055403 .tn-elem[data-elem-id="1470210128180"] {
-    color: #000000;
-    z-index: 5;
-    top: 440px;
-    left: calc(50% - 600px + 505px);
-    width: 190px;
-}
-
-#rec157055403 .tn-elem[data-elem-id="1470210128180"] .tn-atom {
-    color: #000000;
-    font-size: 18px;
-    font-family: 'Arial', Arial, sans-serif;
-    line-height: 1.55;
-    font-weight: 400;
-    opacity: 0.2;
-    background-position: center center;
-    border-color: transparent;
-    border-style: solid;
-}
-
-@media screen and (max-width: 1199px) {
 }
 
 @media screen and (max-width: 959px) {
@@ -104,7 +89,7 @@
 #rec157055403 .tn-elem[data-elem-id="1579964525444"] {
     color: #ffffff;
     z-index: 11;
-    top: 135px;
+    top: 90px;
     left: calc(50% - 600px + 470px);
     width: 260px;
 }
@@ -165,7 +150,7 @@
 
 #rec157055403 .tn-elem[data-elem-id="1579841749596"] {
     z-index: 7;
-    top: 178px;
+    top: 127px;
     left: calc(50% - 600px + 375px);
     width: 450px;
 }
@@ -196,7 +181,7 @@
     color: #ffffff;
     text-align: center;
     z-index: 13;
-    top: 585px;
+    top: 595px;
     left: calc(50% - 600px + 320px);
     width: 560px;
 }
@@ -460,21 +445,4 @@
 
 .tn-atom .t-input-block {
     position: relative;
-}
-
-@media screen and (min-width: 980px) {
-    .t-records {
-        opacity: 0;
-    }
-
-    .t-records_animated {
-        -webkit-transition: opacity ease-in-out .2s;
-        -moz-transition: opacity ease-in-out .2s;
-        -o-transition: opacity ease-in-out .2s;
-        transition: opacity ease-in-out .2s;
-    }
-
-    .t-records.t-records_visible {
-        opacity: 1;
-    }
 }

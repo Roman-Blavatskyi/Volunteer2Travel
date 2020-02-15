@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Roman
-  Date: 03.02.2020
-  Time: 2:42
+  Date: 15.02.2020
+  Time: 14:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,15 +17,15 @@
 <body>
 <div id="main">
     <div id="headerPhoto">
-        <button class="buttons"><a href="/login">Sign in</a></button>
-        <button class="buttons"><a href="/registration">Sign up</a></button>
+        <button class="buttons"><a href="/logout">Log out</a></button>
+        <button class="buttons"><a href="/user/profile">Profile</a></button>
     </div>
 
 
     <c:forEach var="project" items="${requestScope.projects}">
 
         <div id="projectId">
-            <a href="/explore/project">
+            <a href="/user/explore/project">
                 <img class="elements" src="${project.urlImage}" height="200px" width="300px">
                 <div id="description" class="elements">
                     <p>${project.name}</p>
@@ -36,6 +36,7 @@
             </a>
         </div>
     </c:forEach>
+
 </div>
 </body>
 </html>
