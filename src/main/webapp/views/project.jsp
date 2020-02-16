@@ -32,14 +32,29 @@
 
     <div class="prerequisites">
         <h1>Backgrounds</h1>
+        <ul>
+            <c:forEach var="background" items="${requestScope.backgrounds}">
+                <li>${background.name}</li>
+            </c:forEach>
+        </ul>
     </div>
 
     <div class="prerequisites">
         <h1>Skills</h1>
+        <ul>
+            <c:forEach var="skill" items="${requestScope.skills}">
+                <li>${skill.name}</li>
+            </c:forEach>
+        </ul>
     </div>
 
     <div class="prerequisites">
         <h1>Languages</h1>
+        <ul>
+            <c:forEach var="language" items="${requestScope.languages}">
+                <li>${language.name}</li>
+            </c:forEach>
+        </ul>
     </div>
 
 </div>

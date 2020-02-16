@@ -17,7 +17,7 @@ body {
 #headerPhoto {
     height: 350px;
     width: 100%;
-    background-image: url("/static/images/explore_header.jpg");
+    background-image: url("/static/images/5.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }

@@ -3,7 +3,10 @@ package com.softserve.firstdemo.service;
 import com.softserve.firstdemo.dao.CityDao;
 import com.softserve.firstdemo.dao.CountryDao;
 import com.softserve.firstdemo.dao.ProjectDao;
+import com.softserve.firstdemo.entity.Background;
+import com.softserve.firstdemo.entity.Language;
 import com.softserve.firstdemo.entity.Project;
+import com.softserve.firstdemo.entity.Skill;
 import com.softserve.firstdemo.service.validation.CityValidator;
 import com.softserve.firstdemo.service.validation.CountryValidatorForProject;
 import com.softserve.firstdemo.service.validation.IntegerValidator;
@@ -79,4 +82,18 @@ public class ProjectService {
             projectDao.delete(id);
         }
     }
+
+    public List<Background> findAllBackgroundsOfProject(int id) {
+        return projectDao.readProjectBackgroundsById(id);
+    }
+
+    public List<Skill> findAllSkillsOfProject(int id) {
+        return projectDao.readProjectSkillsById(id);
+    }
+
+    public List<Language> findAllLanguagesOfProject(int id) {
+        return projectDao.readProjectLanguagesById(id);
+    }
+
+
 }

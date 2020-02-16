@@ -20,6 +20,9 @@ public class ProjectServlet extends HttpServlet {
         int id = Integer.valueOf(req.getParameter("id"));
         Project project = projectService.findById(id);
         req.setAttribute("project", project);
+        req.setAttribute("backgrounds", projectService.findAllBackgroundsOfProject(id));
+        req.setAttribute("skills", projectService.findAllSkillsOfProject(id));
+        req.setAttribute("languages", projectService.findAllLanguagesOfProject(id));
         req.getRequestDispatcher("/views/project.jsp").forward(req, resp);
     }
 }

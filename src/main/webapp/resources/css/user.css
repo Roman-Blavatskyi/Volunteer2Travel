@@ -1,0 +1,47 @@
+body {
+    background-color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    border: solid black 2px;
+    width: 300px;
+    margin-left: 550px;
+}
+
+h1:hover {
+    background-color: #ffe100;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.buttons {
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 225, 0);
+    opacity: 1;
+    transform: rotate(0deg);
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: transparent;
+    border-style: solid;
+    box-shadow: none;
+    transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+    text-align: center;
+    font-size: 16px;
+    width: 80px;
+    height: 35px;
+    font-family: Arial;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    float: right;
+}
+
+#header {
+    height: 100px;
+    padding-bottom: 70px;
+}
