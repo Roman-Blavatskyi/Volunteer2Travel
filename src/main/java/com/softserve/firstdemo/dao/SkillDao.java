@@ -12,6 +12,7 @@ public class SkillDao implements IGeneralDao<Skill> {
     private static final String CREATE_SKILL = "INSERT INTO SKILLS (NAME) VALUES (?)";
     private static final String READ_ALL_SKILLS = "SELECT * FROM SKILLS";
     private static final String READ_SKILL_BY_ID = "SELECT * FROM SKILLS WHERE ID = ?";
+    private static final String READ_SKILL_BY_NAME = "SELECT * FROM SKILLS WHERE NAME = ?";
     private static final String UPDATE_SKILL = "UPDATE SKILLS SET NAME=? WHERE ID = ?";
     private static final String DELETE_SKILL = "DELETE FROM SKILLS WHERE ID = ?";
 //    private static Logger logger = Logger.getLogger(SkillDao.class.getName());
@@ -64,13 +65,37 @@ public class SkillDao implements IGeneralDao<Skill> {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            skill.setId(resultSet.getInt("id"));
-            skill.setName(resultSet.getString("name"));
-
-            preparedStatement.executeUpdate();
-
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                skill.setId(resultSet.getInt("id"));
+                skill.setName(resultSet.getString("name"));
+            }
         } catch (SQLException e) {
          /*   logger.info("There are problems with reading by id from `Skills` table | SkillDAO Exception.");
+            logger.info(e);*/
+            e.printStackTrace();
+        }
+        return skill;
+    }
+
+    @Override
+    public Skill readByName(String name) {
+        Skill skill = new Skill();
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(READ_SKILL_BY_NAME)) {
+
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                skill.setId(resultSet.getInt("id"));
+                skill.setName(resultSet.getString("name"));
+            }
+        } catch (SQLException e) {
+  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
             logger.info(e);*/
             e.printStackTrace();
         }

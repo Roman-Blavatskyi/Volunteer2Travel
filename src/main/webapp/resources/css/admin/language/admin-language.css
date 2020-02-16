@@ -1,0 +1,88 @@
+#languages {
+    margin-top: 10px;
+}
+
+#languageId {
+    height: 50px;
+    background-color: whitesmoke;
+    line-height: 40px;
+    border: 1px solid black;
+    /*margin-bottom: 10px;*/
+    font-style: normal;
+    font-family: Bahnschrift;
+    font-size: 15px;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+
+.elements {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 50px;
+}
+
+#description {
+    height: 60px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+p {
+    margin: 5px;
+    font-style: normal;
+    font-family: Bahnschrift;
+    font-size: 20px;
+}
+
+input {
+    font-size: 18px;
+    width: 100px;
+    background-color: #ffe100;
+}
+
+#addProject {
+    width: 100%;
+    height: 50px;
+    border: 2px solid black;
+    text-align: center;
+    font-style: normal;
+    font-family: Bahnschrift;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #ffe100;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.buttons {
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 225, 0);
+    opacity: 1;
+    transform: rotate(0deg);
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    box-shadow: none;
+    transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+    text-align: center;
+    font-size: 16px;
+    width: 280px;
+    height: 30px;
+    font-family: Arial;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    float: right;
+}
+
+#header {
+    height: 40px;
+    width: 100%;
+}

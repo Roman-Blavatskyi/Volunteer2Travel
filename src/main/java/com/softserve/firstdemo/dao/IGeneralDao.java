@@ -10,6 +10,8 @@ public interface IGeneralDao<T> {
 
     T readById(int id);
 
+    T readByName(String name);
+
     void update(T t);
 
     void delete(int id);

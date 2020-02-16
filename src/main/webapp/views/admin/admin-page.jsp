@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Volunteer2Travel</title>
-    <link rel="stylesheet" href="/static/css/admin-page.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/static/css/admin/admin-page.css" type="text/css" media="all">
 </head>
 <body>
 <div id="header">
@@ -17,12 +17,24 @@
 </div>
 <h1>Admin Panel</h1>
 <div id="entities">
-    <a href="/admin-page/project"><div class="options">Projects</div></a>
-    <a href="/admin-page/country"><div class="options">Countries</div></a>
-    <a href="/admin-page/city"><div class="options">Cities</div></a>
-    <a href="/admin-page/skill"><div class="options">Skills</div></a>
-    <a href="/admin-page/background"><div class="options">Backgrounds</div></a>
-    <a href="/admin-page/language"><div class="options">Languages</div></a>
+    <a href="/admin-page/project">
+        <div class="options">Projects</div>
+    </a>
+    <a href="/admin-page/country">
+        <div class="options">Countries</div>
+    </a>
+    <a href="/admin-page/city">
+        <div class="options">Cities</div>
+    </a>
+    <a href="/admin-page/skill">
+        <div class="options">Skills</div>
+    </a>
+    <a href="/admin-page/background">
+        <div class="options">Backgrounds</div>
+    </a>
+    <a href="/admin-page/language">
+        <div class="options">Languages</div>
+    </a>
 </div>
 
 <script type="text/javascript">

@@ -9,14 +9,14 @@ public class CountryValidatorForProject {
     private CountryDao countryDao = new CountryDao();
 
     public void validateCountry(Project project, String countryName) {
-        Country country1 = countryDao.readCountryByName(countryName);
+        Country country1 = countryDao.readByName(countryName);
         if (country1 != null) {
             project.setCountry(country1);
         } else {
             country1 = new Country();
             country1.setName(countryName);
             countryDao.create(country1);
-            country1 = countryDao.readCountryByName(countryName);
+            country1 = countryDao.readByName(countryName);
             project.setCountry(country1);
         }
     }

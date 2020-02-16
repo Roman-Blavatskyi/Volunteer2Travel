@@ -12,6 +12,7 @@ public class BackgroundDao implements IGeneralDao<Background> {
     private static final String CREATE_BACKGROUND = "INSERT INTO BACKGROUNDS (NAME) VALUES (?)";
     private static final String READ_ALL_BACKGROUNDS = "SELECT * FROM BACKGROUNDS";
     private static final String READ_BACKGROUND_BY_ID = "SELECT * FROM BACKGROUNDS WHERE ID = ?";
+    private static final String READ_BACKGROUND_BY_NAME = "SELECT * FROM BACKGROUNDS WHERE NAME = ?";
     private static final String UPDATE_BACKGROUND = "UPDATE BACKGROUNDS SET NAME=? WHERE ID = ?";
     private static final String DELETE_BACKGROUND = "DELETE FROM BACKGROUNDS WHERE ID = ?";
 //    private static Logger logger = Logger.getLogger(BackgroundDao.class.getName());
@@ -63,11 +64,12 @@ public class BackgroundDao implements IGeneralDao<Background> {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            background.setId(resultSet.getInt("id"));
-            background.setName(resultSet.getString("name"));
-
-            preparedStatement.executeUpdate();
-
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                background.setId(resultSet.getInt("id"));
+                background.setName(resultSet.getString("name"));
+            }
         } catch (SQLException e) {
   /*          logger.info("There are problems with reading by id from `Backgrounds` table | BackgroundDAO Exception.");
             logger.info(e);*/
@@ -106,5 +108,30 @@ public class BackgroundDao implements IGeneralDao<Background> {
             logger.info(e);*/
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Background readByName(String name) {
+        Background background = new Background();
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(READ_BACKGROUND_BY_NAME)) {
+
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                background.setId(resultSet.getInt("id"));
+                background.setName(resultSet.getString("name"));
+            }
+
+
+        } catch (SQLException e) {
+  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
+            logger.info(e);*/
+            e.printStackTrace();
+        }
+        return background;
     }
 }

@@ -8,10 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="/static/css/admin/update-project.css" type="text/css" media="all">
+    <title>Volunteer2Travel</title>
+    <link rel="stylesheet" href="/static/css/admin/project/update-project.css" type="text/css" media="all">
 </head>
 <body>
+
+<div id="header">
+    <button class="buttons"><a href="/admin-page/project">Back to Projects</a></button>
+</div>
+
 <form id="updateForm" action="/admin-page/update-project" method="post">
 
     <input name="id" type="number" placeholder="Id" value="${requestScope.project.id}">

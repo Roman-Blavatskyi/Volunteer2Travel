@@ -10,13 +10,15 @@
 <html>
 <head>
     <title>Volunteer2Travel</title>
-    <link rel="stylesheet" href="/static/css/admin/admin-project.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/static/css/admin/project/admin-project.css" type="text/css" media="all">
 </head>
 <body>
 <div id="header">
-    <button class="buttons"><a href="/admin-page">Panel</a></button>
+    <button class="buttons"><a href="/admin-page">Back to Admin Panel</a></button>
 </div>
-<a href="/admin-page/create-project"><div id = "addProject">Create project</div></a>
+<a href="/admin-page/create-project">
+    <div id="addProject">Create project</div>
+</a>
 
 <div id="projects">
     <c:forEach var="project" items="${requestScope.admin_projects}">

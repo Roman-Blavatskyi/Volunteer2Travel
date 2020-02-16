@@ -1,8 +1,8 @@
 package com.softserve.firstdemo.controller;
 
 import com.softserve.firstdemo.entity.User;
-import com.softserve.firstdemo.service.LoginService;
 import com.softserve.firstdemo.service.UserService;
+import com.softserve.firstdemo.service.authentication.LoginService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

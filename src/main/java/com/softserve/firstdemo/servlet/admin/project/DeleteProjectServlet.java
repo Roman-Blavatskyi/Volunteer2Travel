@@ -18,7 +18,6 @@ public class DeleteProjectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.valueOf(req.getParameter("id"));
         projectService.deleteProject(id);
-
         resp.sendRedirect("/admin-page/project");
     }
 }

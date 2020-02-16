@@ -73,6 +73,31 @@ public class CityDao implements IGeneralDao<City> {
     }
 
     @Override
+    public City readByName(String name) {
+        City city = new City();
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(READ_CITY_BY_NAME)) {
+
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                city.setId(resultSet.getInt("id"));
+                city.setName(resultSet.getString("name"));
+            }
+
+        } catch (SQLException e) {
+  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
+            logger.info(e);*/
+            e.printStackTrace();
+        }
+        return city;
+    }
+
+    @Override
     public void update(City city) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CITY)) {
@@ -102,29 +127,5 @@ public class CityDao implements IGeneralDao<City> {
             logger.info(e);*/
             e.printStackTrace();
         }
-    }
-
-    public City readCityByName(String name) {
-        City city = new City();
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(READ_CITY_BY_NAME)) {
-
-            preparedStatement.setString(1, name);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-
-            if (resultSet.next() == false) {
-                return null;
-            } else {
-                city.setId(resultSet.getInt("id"));
-                city.setName(resultSet.getString("name"));
-            }
-
-        } catch (SQLException e) {
-  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
-            e.printStackTrace();
-        }
-        return city;
     }
 }

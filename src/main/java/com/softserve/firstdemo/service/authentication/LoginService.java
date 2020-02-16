@@ -1,4 +1,4 @@
-package com.softserve.firstdemo.service;
+package com.softserve.firstdemo.service.authentication;
 
 import com.softserve.firstdemo.dao.LoginDao;
 

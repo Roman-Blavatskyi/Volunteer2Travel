@@ -1,6 +1,6 @@
 package com.softserve.firstdemo.servlet;
 
-import com.softserve.firstdemo.service.LogoutService;
+import com.softserve.firstdemo.service.authentication.LogoutService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

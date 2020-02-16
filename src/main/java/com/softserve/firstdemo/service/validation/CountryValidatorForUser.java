@@ -9,14 +9,14 @@ public class CountryValidatorForUser {
     private CountryDao countryDao = new CountryDao();
 
     public void validateCountry(User user, String countryName) {
-        Country country1 = countryDao.readCountryByName(countryName);
+        Country country1 = countryDao.readByName(countryName);
         if (country1 != null) {
             user.setCountry(country1);
         } else {
             country1 = new Country();
             country1.setName(countryName);
             countryDao.create(country1);
-            country1 = countryDao.readCountryByName(countryName);
+            country1 = countryDao.readByName(countryName);
             user.setCountry(country1);
         }
     }

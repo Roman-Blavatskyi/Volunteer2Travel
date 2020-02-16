@@ -9,10 +9,15 @@
 <html>
 <head>
     <title>Volunteer2Travel</title>
-    <link rel="stylesheet" href="/static/css/admin/create-project.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/static/css/admin/project/create-project.css" type="text/css" media="all">
 
 </head>
 <body>
+
+<div id="header">
+    <button class="buttons"><a href="/admin-page/project">Back to Projects</a></button>
+</div>
+
 <form id="createForm" action="/admin-page/create-project" method="post">
 
     <input name="name" type="text" placeholder="Project name">

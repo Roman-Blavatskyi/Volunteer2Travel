@@ -97,6 +97,11 @@ public class ProjectDao implements IGeneralDao<Project> {
     }
 
     @Override
+    public Project readByName(String name) {
+        return null;
+    }
+
+    @Override
     public void update(Project project) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PROJECT)) {

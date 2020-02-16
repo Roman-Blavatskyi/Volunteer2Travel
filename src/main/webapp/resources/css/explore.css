@@ -11,6 +11,7 @@ body {
     font-style: normal;
     font-family: Bahnschrift;
     font-size: 15px;
+    background-color: whitesmoke;
 }
 
 #headerPhoto {
@@ -19,6 +20,14 @@ body {
     background-image: url("/static/images/explore_header.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#header {
+    height: 350px;
+    width: 100%;
+    background-color: black;
+    opacity: 0.2;
+    position: absolute;
 }
 
 .buttons {
@@ -61,7 +70,7 @@ a {
     margin-left: 50px;
 }
 
-p {
+pre {
     margin: 5px;
     font-style: normal;
     font-family: Bahnschrift;
@@ -71,4 +80,12 @@ p {
 .options:hover {
     color: black;
     background: #ffe100;
+}
+
+form {
+    margin-left: 500px;
+}
+
+input {
+    font-size: 20px;
 }

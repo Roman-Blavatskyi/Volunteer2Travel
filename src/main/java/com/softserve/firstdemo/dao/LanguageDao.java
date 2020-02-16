@@ -12,6 +12,7 @@ public class LanguageDao implements IGeneralDao<Language> {
     private static final String CREATE_LANGUAGE = "INSERT INTO LANGUAGES (NAME) VALUES (?)";
     private static final String READ_ALL_LANGUAGES = "SELECT * FROM LANGUAGES";
     private static final String READ_LANGUAGE_BY_ID = "SELECT * FROM LANGUAGES WHERE ID = ?";
+    private static final String READ_LANGUAGE_BY_NAME = "SELECT * FROM LANGUAGES WHERE NAME = ?";
     private static final String UPDATE_LANGUAGE = "UPDATE LANGUAGES SET NAME=? WHERE ID = ?";
     private static final String DELETE_LANGUAGE = "DELETE FROM LANGUAGES WHERE ID = ?";
 //    private static Logger logger = Logger.getLogger(LanguageDao.class.getName());
@@ -63,13 +64,37 @@ public class LanguageDao implements IGeneralDao<Language> {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            language.setId(resultSet.getInt("id"));
-            language.setName(resultSet.getString("name"));
-
-            preparedStatement.executeUpdate();
-
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                language.setId(resultSet.getInt("id"));
+                language.setName(resultSet.getString("name"));
+            }
         } catch (SQLException e) {
 /*            logger.info("There are problems with reading by id from `Languages` table | LanguageDAO Exception.");
+            logger.info(e);*/
+            e.printStackTrace();
+        }
+        return language;
+    }
+
+    @Override
+    public Language readByName(String name) {
+        Language language = new Language();
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(READ_LANGUAGE_BY_NAME)) {
+
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next() == false) {
+                return null;
+            } else {
+                language.setId(resultSet.getInt("id"));
+                language.setName(resultSet.getString("name"));
+            }
+        } catch (SQLException e) {
+  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
             logger.info(e);*/
             e.printStackTrace();
         }

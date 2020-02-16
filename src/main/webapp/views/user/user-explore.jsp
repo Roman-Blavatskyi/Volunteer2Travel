@@ -17,6 +17,7 @@
 <body>
 <div id="main">
     <div id="headerPhoto">
+        <img id="header">
         <button class="buttons"><a href="/logout">Log out</a></button>
         <button class="buttons"><a href="/user/profile">Profile</a></button>
     </div>
@@ -25,15 +26,17 @@
     <c:forEach var="project" items="${requestScope.projects}">
 
         <div id="projectId">
-            <a href="/user/explore/project">
-                <img class="elements" src="${project.urlImage}" height="200px" width="300px">
-                <div id="description" class="elements">
-                    <p>${project.name}</p>
-                    <p>${project.startDate} ~ ${project.duration} weeks</p>
-                    <br>
-                    <p>${project.country.name}, ${project.city.name}</p>
-                </div>
-            </a>
+            <img class="elements" src="${project.urlImage}" height="200px" width="300px">
+            <div id="description" class="elements">
+                <pre>${project.name}</pre>
+                <pre>${project.startDate} ~ ${project.duration} weeks</pre>
+                <br>
+                <pre>${project.country.name}, ${project.city.name}</pre>
+            </div>
+            <form class="elements" method="get" action="/user/explore/project">
+                <input type="number" hidden name="id" value="${project.id}"/>
+                <input type="submit" value="Detailed"/>
+            </form>
         </div>
     </c:forEach>
 

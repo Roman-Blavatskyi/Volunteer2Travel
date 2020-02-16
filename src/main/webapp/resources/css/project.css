@@ -4,20 +4,35 @@ body {
 }
 
 #headerPhoto {
-    height: 350px;
+    height: 400px;
     width: 100%;
-    background-image: url("/static/images/1566119100.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: black;
 }
 
 img {
-    height: 350px;
+    height: 400px;
     width: 100%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    position: absolute;
+    background-color: black;
+    opacity: 0.6;
+}
+
+#applyButton {
+    text-align: center;
+    font-size: 16px;
+    width: 170px;
+    height: 70px;
+    font-family: Arial;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background-color: white;
+    position: absolute;
+    margin-top: 280px;
+    left: 600px;
 }
 
 .buttons {
@@ -48,8 +63,50 @@ a {
     color: black;
 }
 
+#a {
+    color: black;
+}
+
 #description {
     height: 350px;
     width: 100%;
     background-color: whitesmoke;
+}
+
+.prerequisites {
+    width: 32.4%;
+    height: 300px;
+    float: right;
+    border: black 1px solid;
+    margin: 5px;
+    background-color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: dashed;
+}
+
+#location {
+    color: white;
+    width: 500px;
+    height: 100px;
+    position: absolute;
+    margin-top: 170px;
+    margin-left: 430px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#projectName {
+    color: white;
+    font-size: 35px;
+    font-family: Arial;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.loc {
+    font-size: 20px;
+    font-weight: 1000px;
 }

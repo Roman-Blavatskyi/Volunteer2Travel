@@ -1,5 +1,7 @@
 package com.softserve.firstdemo.servlet.admin.skill;
 
+import com.softserve.firstdemo.service.SkillService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +11,12 @@ import java.io.IOException;
 
 @WebServlet("/admin-page/skill")
 public class SkillPageServlet extends HttpServlet {
+
+    private SkillService skillService = new SkillService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/views/admin/admin-skill.jsp").forward(req, resp);
+        req.setAttribute("admin_skills", skillService.findAllSkills());
+        req.getRequestDispatcher("/views/admin/skill/admin-skill.jsp").forward(req, resp);
     }
 }

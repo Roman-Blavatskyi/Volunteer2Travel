@@ -102,6 +102,11 @@ public class UserDao implements IGeneralDao<User> {
     }
 
     @Override
+    public User readByName(String name) {
+        return null;
+    }
+
+    @Override
     public void update(User user) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)) {
