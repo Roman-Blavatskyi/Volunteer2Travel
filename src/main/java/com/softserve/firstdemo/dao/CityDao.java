@@ -23,8 +23,6 @@ public class CityDao implements IGeneralDao<City> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-     /*       logger.info("There are problems with inserting into `Country` database | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -45,8 +43,6 @@ public class CityDao implements IGeneralDao<City> {
                 cities.add(city);
             }
         } catch (SQLException e) {
-      /*      logger.info("There are problems with reading all cities from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return cities;
@@ -65,8 +61,6 @@ public class CityDao implements IGeneralDao<City> {
             city.setName(resultSet.getString("name"));
 
         } catch (SQLException e) {
-  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return city;
@@ -90,8 +84,6 @@ public class CityDao implements IGeneralDao<City> {
             }
 
         } catch (SQLException e) {
-  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return city;
@@ -108,8 +100,6 @@ public class CityDao implements IGeneralDao<City> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-/*            logger.info("There are problems with updating `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -123,8 +113,6 @@ public class CityDao implements IGeneralDao<City> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-   /*         logger.info("There are problems with deleting from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }

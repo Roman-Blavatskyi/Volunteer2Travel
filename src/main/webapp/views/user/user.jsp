@@ -21,5 +21,12 @@
 
 <h1><a href="/user/profile/personal-info">Personal Info</a></h1>
 <h1><a href="/user/profile/projects">Projects</a></h1>
+
+<script type="text/javascript">
+    var Msg = '<%=(String)request.getAttribute("msg")%>';
+    if (Msg != "null") {
+        alert(Msg);
+    }
+</script>
 </body>
 </html>

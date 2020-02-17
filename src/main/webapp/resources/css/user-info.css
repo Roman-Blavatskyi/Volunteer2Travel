@@ -1,0 +1,63 @@
+#user {
+    width: 250px;
+    height: 550px;
+    background-color: #ffe100;
+    font-size: 20px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    border: solid black 2px;
+    background-color: whitesmoke;
+    margin-top: 20px;
+}
+
+p {
+    padding: 0;
+    margin: 5px;
+    text-align: center;
+}
+
+form {
+    padding: 15px;
+    margin-left: 60px;
+}
+
+input {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+}
+
+img {
+    margin-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.buttons {
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 225, 0);
+    opacity: 1;
+    transform: rotate(0deg);
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    box-shadow: none;
+    transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+    text-align: center;
+    font-size: 16px;
+    width: 180px;
+    height: 30px;
+    font-family: Arial;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    float: right;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

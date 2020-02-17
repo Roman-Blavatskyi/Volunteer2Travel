@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet("/user/explore/project/apply")
 public class UserApplyServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect("/user/profile");
     }
 }

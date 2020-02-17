@@ -6,8 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//import org.apache.log4j.Logger;
-
 public class BackgroundDao implements IGeneralDao<Background> {
     private static final String CREATE_BACKGROUND = "INSERT INTO BACKGROUNDS (NAME) VALUES (?)";
     private static final String READ_ALL_BACKGROUNDS = "SELECT * FROM BACKGROUNDS";
@@ -15,7 +13,6 @@ public class BackgroundDao implements IGeneralDao<Background> {
     private static final String READ_BACKGROUND_BY_NAME = "SELECT * FROM BACKGROUNDS WHERE NAME = ?";
     private static final String UPDATE_BACKGROUND = "UPDATE BACKGROUNDS SET NAME=? WHERE ID = ?";
     private static final String DELETE_BACKGROUND = "DELETE FROM BACKGROUNDS WHERE ID = ?";
-//    private static Logger logger = Logger.getLogger(BackgroundDao.class.getName());
 
     @Override
     public void create(Background background) {
@@ -26,8 +23,6 @@ public class BackgroundDao implements IGeneralDao<Background> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-   /*         logger.info("There are problems with inserting into `Backgrounds` table | BackgroundDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -48,8 +43,6 @@ public class BackgroundDao implements IGeneralDao<Background> {
                 backgrounds.add(background);
             }
         } catch (SQLException e) {
-     /*       logger.info("There are problems with reading all backgrounds from `Backgrounds` table | BackgroundDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return backgrounds;
@@ -71,8 +64,6 @@ public class BackgroundDao implements IGeneralDao<Background> {
                 background.setName(resultSet.getString("name"));
             }
         } catch (SQLException e) {
-  /*          logger.info("There are problems with reading by id from `Backgrounds` table | BackgroundDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return background;
@@ -89,8 +80,6 @@ public class BackgroundDao implements IGeneralDao<Background> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-    /*        logger.info("There are problems with updating `Backgrounds` table | BackgroundDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -104,8 +93,6 @@ public class BackgroundDao implements IGeneralDao<Background> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
- /*           logger.info("There are problems with deleting from `Backgrounds` table | BackgroundDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -125,11 +112,7 @@ public class BackgroundDao implements IGeneralDao<Background> {
                 background.setId(resultSet.getInt("id"));
                 background.setName(resultSet.getString("name"));
             }
-
-
         } catch (SQLException e) {
-  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return background;

@@ -6,8 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//import org.apache.log4j.Logger;
-
 public class CountryDao implements IGeneralDao<Country> {
     private static final String CREATE_COUNTRY = "INSERT INTO COUNTRIES (NAME) VALUES (?)";
     private static final String READ_ALL_COUNTRIES = "SELECT * FROM COUNTRIES";
@@ -15,7 +13,6 @@ public class CountryDao implements IGeneralDao<Country> {
     private static final String READ_COUNTRY_BY_NAME = "SELECT * FROM COUNTRIES WHERE NAME = ?";
     private static final String UPDATE_COUNTRY = "UPDATE COUNTRIES SET NAME=? WHERE ID = ?";
     private static final String DELETE_COUNTRY = "DELETE FROM COUNTRIES WHERE ID = ?";
-//    private static Logger logger = Logger.getLogger(CountryDao.class.getName());
 
     @Override
     public void create(Country country) {
@@ -26,8 +23,6 @@ public class CountryDao implements IGeneralDao<Country> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-     /*       logger.info("There are problems with inserting into `Country` database | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -48,8 +43,6 @@ public class CountryDao implements IGeneralDao<Country> {
                 countries.add(country);
             }
         } catch (SQLException e) {
-      /*      logger.info("There are problems with reading all countries from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return countries;
@@ -68,8 +61,6 @@ public class CountryDao implements IGeneralDao<Country> {
             country.setName(resultSet.getString("name"));
 
         } catch (SQLException e) {
-  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return country;
@@ -93,8 +84,6 @@ public class CountryDao implements IGeneralDao<Country> {
 
 
         } catch (SQLException e) {
-  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return country;
@@ -111,8 +100,6 @@ public class CountryDao implements IGeneralDao<Country> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-/*            logger.info("There are problems with updating `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -126,8 +113,6 @@ public class CountryDao implements IGeneralDao<Country> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-   /*         logger.info("There are problems with deleting from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }

@@ -9,9 +9,38 @@
 <html>
 <head>
     <title>Volunteer2Travel</title>
-    <link rel="stylesheet" href="/static/css/user.css" type="text/css"
-          media="all"></head>
+    <link rel="stylesheet" href="/static/css/user-info.css" type="text/css"
+          media="all">
+</head>
 <body>
 
+<div id="header">
+    <button class="buttons"><a href="/user/profile">Back to Profile</a></button>
+</div>
+
+<div id="user">
+    <img src="${sessionScope.user.urlImage}" style="width: 200px; height: 200px">
+    <p>${sessionScope.user.name}</p>
+    <br>
+    <p>${sessionScope.user.surname}</p>
+    <br>
+    <p>${sessionScope.user.email}</p>
+    <br>
+    <p>${sessionScope.user.phone}</p>
+    <br>
+    <p>${sessionScope.user.country.name}</p>
+
+    <form class="elements" method="get" action="/user/profile/personal-info/edit">
+        <input type="number" hidden name="id" value="${sessionScope.user.id}"/>
+        <input type="submit" value="Edit"/>
+    </form>
+</div>
+
+<script type="text/javascript">
+    var Msg = '<%=(String)request.getAttribute("msg")%>';
+    if (Msg != "null") {
+        alert(Msg);
+    }
+</script>
 </body>
 </html>

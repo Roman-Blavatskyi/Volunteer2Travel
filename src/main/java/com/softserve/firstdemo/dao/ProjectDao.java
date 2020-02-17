@@ -9,8 +9,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//import org.apache.log4j.Logger;
-
 public class ProjectDao implements IGeneralDao<Project> {
     private static final String CREATE_PROJECT =
             "INSERT INTO PROJECTS (name, description, startDate, duration, urlImage, countryId, cityId) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -30,7 +28,6 @@ public class ProjectDao implements IGeneralDao<Project> {
 
     private static CountryDao countryDao = new CountryDao();
     private static CityDao cityDao = new CityDao();
-    //    private static Logger logger = Logger.getLogger(ProjectDao.class.getName());
 
     @Override
     public void create(Project project) {
@@ -48,8 +45,6 @@ public class ProjectDao implements IGeneralDao<Project> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-      /*      logger.info("There are problems with inserting into `Projects` table | ProjectDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -75,8 +70,6 @@ public class ProjectDao implements IGeneralDao<Project> {
                 projects.add(project);
             }
         } catch (SQLException e) {
-           /* logger.info("There are problems with reading all projects from `Projects` table | ProjectDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return projects;
@@ -102,8 +95,6 @@ public class ProjectDao implements IGeneralDao<Project> {
             project.setCity(cityDao.readById(resultSet.getInt("cityId")));
 
         } catch (SQLException e) {
-          /*  logger.info("There are problems with reading projects by id from `Projects` table | ProjectDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return project;
@@ -131,8 +122,6 @@ public class ProjectDao implements IGeneralDao<Project> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-       /*     logger.info("There are problems with updating `Projects` table | ProjectDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -146,8 +135,6 @@ public class ProjectDao implements IGeneralDao<Project> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-        /*    logger.info("There are problems with deleting from `Projects` table | ProjectDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -167,8 +154,6 @@ public class ProjectDao implements IGeneralDao<Project> {
                 backgrounds.add(background);
             }
         } catch (SQLException e) {
-/*            logger.info("There are problems with reading all projects from `Projects` table | ProjectDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return backgrounds;
@@ -189,8 +174,6 @@ public class ProjectDao implements IGeneralDao<Project> {
                 skills.add(skill);
             }
         } catch (SQLException e) {
-/*            logger.info("There are problems with reading all projects from `Projects` table | ProjectDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return skills;
@@ -211,8 +194,6 @@ public class ProjectDao implements IGeneralDao<Project> {
                 languages.add(language);
             }
         } catch (SQLException e) {
-/*            logger.info("There are problems with reading all projects from `Projects` table | ProjectDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return languages;

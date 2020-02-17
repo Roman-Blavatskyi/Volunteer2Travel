@@ -6,8 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//import org.apache.log4j.Logger;
-
 public class LanguageDao implements IGeneralDao<Language> {
     private static final String CREATE_LANGUAGE = "INSERT INTO LANGUAGES (NAME) VALUES (?)";
     private static final String READ_ALL_LANGUAGES = "SELECT * FROM LANGUAGES";
@@ -15,7 +13,6 @@ public class LanguageDao implements IGeneralDao<Language> {
     private static final String READ_LANGUAGE_BY_NAME = "SELECT * FROM LANGUAGES WHERE NAME = ?";
     private static final String UPDATE_LANGUAGE = "UPDATE LANGUAGES SET NAME=? WHERE ID = ?";
     private static final String DELETE_LANGUAGE = "DELETE FROM LANGUAGES WHERE ID = ?";
-//    private static Logger logger = Logger.getLogger(LanguageDao.class.getName());
 
     @Override
     public void create(Language language) {
@@ -26,8 +23,6 @@ public class LanguageDao implements IGeneralDao<Language> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-   /*         logger.info("There are problems with inserting into `Languages` table | LanguageDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -48,8 +43,6 @@ public class LanguageDao implements IGeneralDao<Language> {
                 languages.add(language);
             }
         } catch (SQLException e) {
-     /*       logger.info("There are problems with reading all languages from `Languages` table | LanguageDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return languages;
@@ -71,8 +64,6 @@ public class LanguageDao implements IGeneralDao<Language> {
                 language.setName(resultSet.getString("name"));
             }
         } catch (SQLException e) {
-/*            logger.info("There are problems with reading by id from `Languages` table | LanguageDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return language;
@@ -94,8 +85,6 @@ public class LanguageDao implements IGeneralDao<Language> {
                 language.setName(resultSet.getString("name"));
             }
         } catch (SQLException e) {
-  /*          logger.info("There are problems with reading by id from `Country` table | CountryDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
         return language;
@@ -112,8 +101,6 @@ public class LanguageDao implements IGeneralDao<Language> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
- /*           logger.info("There are problems with updating `Languages` table | LanguageDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }
@@ -127,8 +114,6 @@ public class LanguageDao implements IGeneralDao<Language> {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-/*            logger.info("There are problems with deleting from `Languages` table | LanguageDAO Exception.");
-            logger.info(e);*/
             e.printStackTrace();
         }
     }

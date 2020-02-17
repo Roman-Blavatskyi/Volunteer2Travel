@@ -21,7 +21,6 @@ public class LoginDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             isUser = resultSet.next();
         } catch (SQLException e) {
-//            logger.error("Issue in email validation");
             e.printStackTrace();
         }
         return isUser;

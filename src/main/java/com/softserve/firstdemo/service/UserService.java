@@ -50,22 +50,16 @@ public class UserService {
         return userDao.readAll();
     }
 
-    public void editUser(int id, String name, String surname, String country, String phone,
-                         String email, String password) {
+    public void editUser(int id, String name, String surname, String country, String phone, String urlImage) {
 
         User user = userDao.readById(id);
         stringValidator.validateString(name);
         user.setName(name);
         stringValidator.validateString(surname);
         user.setSurname(surname);
-        stringValidator.validateString(country);
         countryValidator.validateCountry(user, country);
-        phoneValidator.validatePhoneNumber(phone);
         user.setPhone(phone);
-        emailValidator.validateEmail(email);
-        user.setEmail(email);
-        passwordValidator.validatePasswordLength(password);
-        user.setPassword(password);
+        user.setEmail(urlImage);
 
         userDao.update(user);
     }
